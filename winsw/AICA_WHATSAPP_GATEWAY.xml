@@ -1,0 +1,27 @@
+<service>
+
+  <id>AICA_WHATSAPP_GATEWAY</id>
+
+  <name>AICA WhatsApp Gateway</name>
+
+  <description>WhatsApp Gateway PT AICA Indria</description>
+
+  <executable>C:\Program Files\nodejs\node.exe</executable>
+
+  <arguments>E:\laragon\whatsap-api-new-2026\index.js</arguments>
+
+  <workingdirectory>E:\laragon\whatsap-api-new-2026</workingdirectory>
+
+  <logpath>E:\laragon\whatsap-api-new-2026\logs</logpath>
+
+  <log mode="roll-by-size">
+
+    <sizeThreshold>10240</sizeThreshold>
+
+    <keepFiles>10</keepFiles>
+
+  </log>
+
+  <onfailure action="restart" delay="5 sec"/>
+
+</service>

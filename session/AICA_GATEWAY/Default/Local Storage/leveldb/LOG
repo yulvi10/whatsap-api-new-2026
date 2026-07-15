@@ -1,0 +1,6 @@
+2026/07/15-15:26:54.114 58d8 Reusing MANIFEST E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY\Default\Local Storage\leveldb/MANIFEST-000001
+2026/07/15-15:26:54.126 58d8 Recovering log #47
+2026/07/15-15:26:54.138 58d8 Reusing old log E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY\Default\Local Storage\leveldb/000047.log 
+2026/07/15-15:27:54.155 597c Level-0 table #52: started
+2026/07/15-15:27:54.157 597c Level-0 table #52: 20181 bytes OK
+2026/07/15-15:27:54.158 597c Delete type=0 #47

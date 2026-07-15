@@ -1,0 +1,29 @@
+body {
+
+    background: #edf2f7;
+
+}
+
+.card {
+
+    border: none;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+
+}
+
+.card-header {
+
+    background: #fff;
+
+    font-weight: bold;
+
+}
+
+h2 {
+
+    font-weight: bold;
+
+}
