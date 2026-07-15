@@ -1,0 +1,259 @@
+[2026-07-14 13:57:31] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 13:57:39] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 13:57:39] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 13:57:47] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 13:57:47] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 13:57:55] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 13:57:55] [ERROR] Failed to launch the browser process:  Code: 21
+
+stderr:
+
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+[2026-07-14 14:42:16] [ERROR] Page Closed
+[2026-07-14 14:42:16] [ERROR] Page Closed
+[2026-07-14 15:02:10] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/yk/r/2-frBWSR0qM.js:80:180)
+[2026-07-14 15:13:33] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:13:39] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:13:45] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:13:52] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:13:58] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:14:04] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:14:10] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:30:40] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 15:31:17] [ERROR] The browser is already running for E:\laragon\whatsap-api-new-2026\session\AICA_GATEWAY. Use a different `userDataDir` or stop the running browser first.
+[2026-07-14 16:44:56] [ERROR] Cannot read properties of undefined (reading 'start')
+[2026-07-14 17:02:03] [ERROR] TypeError: E:\laragon\whatsap-api-new-2026\src\views\dashboard.ejs:86
+    84| 
+    85|               <div class="status text-success">
+ >> 86|                 <%= health.whatsapp.status %>
+    87|               </div>
+    88|             </div>
+    89|           </div>
+
+Cannot read properties of undefined (reading 'status')
+    at eval ("E:\\laragon\\whatsap-api-new-2026\\src\\views\\dashboard.ejs":12:42)
+    at dashboard (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:42)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+    at exports.index (E:\laragon\whatsap-api-new-2026\src\controllers\dashboardController.js:7:9)
+    at Layer.handleRequest (E:\laragon\whatsap-api-new-2026\node_modules\router\lib\layer.js:152:17)
+[2026-07-14 17:02:10] [ERROR] TypeError: E:\laragon\whatsap-api-new-2026\src\views\dashboard.ejs:86
+    84| 
+    85|               <div class="status text-success">
+ >> 86|                 <%= health.whatsapp.status %>
+    87|               </div>
+    88|             </div>
+    89|           </div>
+
+Cannot read properties of undefined (reading 'status')
+    at eval ("E:\\laragon\\whatsap-api-new-2026\\src\\views\\dashboard.ejs":12:42)
+    at dashboard (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:42)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+    at exports.index (E:\laragon\whatsap-api-new-2026\src\controllers\dashboardController.js:7:9)
+    at Layer.handleRequest (E:\laragon\whatsap-api-new-2026\node_modules\router\lib\layer.js:152:17)
+[2026-07-14 17:20:56] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/yk/r/2-frBWSR0qM.js:80:180)
+[2026-07-15 06:32:41] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/yk/r/2-frBWSR0qM.js:80:180)
+[2026-07-15 06:35:27] [ERROR] Send Timeout
+[2026-07-15 06:57:29] [ERROR] Send Timeout
+[2026-07-15 07:57:24] [ERROR] Send Timeout
+[2026-07-15 09:26:14] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:26:29] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:26:45] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:32:56] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:33:10] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:33:25] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:57:20] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:57:34] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 09:57:49] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 10:41:08] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 10:41:22] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 10:41:37] [ERROR] No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:80:180)
+[2026-07-15 11:01:43] [ERROR] Invariant Violation: Minified invariant #56367; %s
+s (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:75:367)
+Object.d [as getStorage] (https://static.whatsapp.net/rsrc.php/v4iOGQ4/yY/l/en_US-j/jqnqSP8QQTTdo8ssrwv0DdQAOoG5C9DR-BRj3BP3qoYn7eSu5nyUe6uwyLcqCeb6xB-3g4SKXA4tUXwWkDl9ZzAPCA0pKXeJFZ9_mZH65TpqCOi-5SVTlNN2o17gfT0tCV4Ev_heeKjHhAvjptiCGKwZoKStysZ3Y5LnQ8NF5vf_ajqJ2sSwr1fKSwYGvExvMWK5n3tfK1kiUU-WK5jgObaU57GmFeKHHHHzFrbhRgxME01XdEO_1gz2_a6koDZGnIGZwzEmxKehH0ZUo3NXt-igvQUnAgjXuqq03du_DM2m0LY34503s1ezH4y62i4.js:692:209)
+Object.s [as getChatTable] (https://static.whatsapp.net/rsrc.php/v4iOGQ4/yY/l/en_US-j/jqnqSP8QQTTdo8ssrwv0DdQAOoG5C9DR-BRj3BP3qoYn7eSu5nyUe6uwyLcqCeb6xB-3g4SKXA4tUXwWkDl9ZzAPCA0pKXeJFZ9_mZH65TpqCOi-5SVTlNN2o17gfT0tCV4Ev_heeKjHhAvjptiCGKwZoKStysZ3Y5LnQ8NF5vf_ajqJ2sSwr1fKSwYGvExvMWK5n3tfK1kiUU-WK5jgObaU57GmFeKHHHHzFrbhRgxME01XdEO_1gz2_a6koDZGnIGZwzEmxKehH0ZUo3NXt-igvQUnAgjXuqq03du_DM2m0LY34503s1ezH4y62i4.js:732:2645)
+Object.<anonymous> (https://static.whatsapp.net/rsrc.php/v4iXzU4/yG/l/en_US-j/9eYTx18heyz.js:716:283)
+Generator.next (<anonymous>)
+l (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:110:125)
+i (https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:110:349)
+https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:110:408
+[2026-07-15 11:03:13] [ERROR] Cannot read properties of undefined (reading 'start')
+[2026-07-15 11:12:59] [ERROR] WhatsApp belum ready
+[2026-07-15 11:13:11] [ERROR] WhatsApp belum ready
+[2026-07-15 11:13:23] [ERROR] WhatsApp belum ready
+[2026-07-15 11:13:35] [ERROR] WhatsApp belum ready
+[2026-07-15 11:13:48] [ERROR] WhatsApp belum ready
+[2026-07-15 11:14:00] [ERROR] WhatsApp belum ready
+[2026-07-15 11:14:12] [ERROR] WhatsApp belum ready
+[2026-07-15 11:14:24] [ERROR] WhatsApp belum ready
+[2026-07-15 11:14:36] [ERROR] WhatsApp belum ready
+[2026-07-15 11:37:54] [ERROR] WhatsApp belum ready
+[2026-07-15 11:47:33] [ERROR] WhatsApp belum ready
+[2026-07-15 11:47:46] [ERROR] WhatsApp belum ready
+[2026-07-15 12:10:36] [ERROR] WhatsApp belum ready
+[2026-07-15 12:10:48] [ERROR] WhatsApp belum ready
+[2026-07-15 12:11:01] [ERROR] WhatsApp belum ready
+[2026-07-15 12:11:13] [ERROR] WhatsApp belum ready
+[2026-07-15 12:17:58] [ERROR] WhatsApp belum ready
+[2026-07-15 12:18:10] [ERROR] WhatsApp belum ready
+[2026-07-15 12:18:22] [ERROR] WhatsApp belum ready
+[2026-07-15 12:18:34] [ERROR] WhatsApp belum ready
+[2026-07-15 12:18:46] [ERROR] WhatsApp belum ready
+[2026-07-15 12:18:58] [ERROR] WhatsApp belum ready
+[2026-07-15 12:32:24] [ERROR] WhatsApp belum ready
+[2026-07-15 13:01:50] [ERROR] WhatsApp belum ready
+[2026-07-15 13:02:02] [ERROR] WhatsApp belum ready
+[2026-07-15 13:02:14] [ERROR] WhatsApp belum ready
+[2026-07-15 13:02:26] [ERROR] WhatsApp belum ready
+[2026-07-15 13:02:38] [ERROR] WhatsApp belum ready
+[2026-07-15 13:02:50] [ERROR] WhatsApp belum ready
+[2026-07-15 13:03:02] [ERROR] WhatsApp belum ready
+[2026-07-15 13:03:14] [ERROR] WhatsApp belum ready
+[2026-07-15 13:03:26] [ERROR] WhatsApp belum ready
+[2026-07-15 13:03:38] [ERROR] WhatsApp belum ready
+[2026-07-15 13:03:51] [ERROR] WhatsApp belum ready
+[2026-07-15 13:04:03] [ERROR] WhatsApp belum ready
+[2026-07-15 13:04:15] [ERROR] WhatsApp belum ready
+[2026-07-15 13:09:12] [ERROR] WhatsApp belum ready
+[2026-07-15 13:09:24] [ERROR] WhatsApp belum ready
+[2026-07-15 13:09:36] [ERROR] WhatsApp belum ready
+[2026-07-15 13:09:49] [ERROR] WhatsApp belum ready
+[2026-07-15 13:10:01] [ERROR] WhatsApp belum ready
+[2026-07-15 13:10:13] [ERROR] WhatsApp belum ready
+[2026-07-15 13:10:25] [ERROR] WhatsApp belum ready
+[2026-07-15 13:16:46] [ERROR] WhatsApp belum ready
+[2026-07-15 13:16:58] [ERROR] WhatsApp belum ready
+[2026-07-15 13:17:10] [ERROR] WhatsApp belum ready
+[2026-07-15 13:17:22] [ERROR] WhatsApp belum ready
+[2026-07-15 13:17:34] [ERROR] WhatsApp belum ready
+[2026-07-15 13:17:46] [ERROR] WhatsApp belum ready
+[2026-07-15 13:17:58] [ERROR] WhatsApp belum ready
+[2026-07-15 13:18:10] [ERROR] WhatsApp belum ready
+[2026-07-15 13:18:22] [ERROR] WhatsApp belum ready
+[2026-07-15 13:22:21] [ERROR] WhatsApp belum ready
+[2026-07-15 13:22:33] [ERROR] WhatsApp belum ready
+[2026-07-15 13:22:45] [ERROR] WhatsApp belum ready
+[2026-07-15 13:22:58] [ERROR] WhatsApp belum ready
+[2026-07-15 13:23:10] [ERROR] WhatsApp belum ready
+[2026-07-15 13:23:22] [ERROR] WhatsApp belum ready
+[2026-07-15 13:23:34] [ERROR] WhatsApp belum ready
+[2026-07-15 13:23:46] [ERROR] WhatsApp belum ready
+[2026-07-15 13:23:58] [ERROR] WhatsApp belum ready
+[2026-07-15 13:24:10] [ERROR] WhatsApp belum ready
+[2026-07-15 13:24:22] [ERROR] WhatsApp belum ready
+[2026-07-15 13:24:34] [ERROR] WhatsApp belum ready
+[2026-07-15 13:24:46] [ERROR] WhatsApp belum ready
+[2026-07-15 13:24:58] [ERROR] WhatsApp belum ready
+[2026-07-15 13:25:10] [ERROR] WhatsApp belum ready
+[2026-07-15 13:25:23] [ERROR] WhatsApp belum ready
+[2026-07-15 13:25:35] [ERROR] WhatsApp belum ready
+[2026-07-15 13:25:47] [ERROR] WhatsApp belum ready
+[2026-07-15 13:28:41] [ERROR] WhatsApp belum ready
+[2026-07-15 13:28:53] [ERROR] WhatsApp belum ready
+[2026-07-15 13:29:06] [ERROR] WhatsApp belum ready
+[2026-07-15 13:29:18] [ERROR] WhatsApp belum ready
+[2026-07-15 13:29:30] [ERROR] WhatsApp belum ready
+[2026-07-15 13:29:42] [ERROR] WhatsApp belum ready
+[2026-07-15 13:29:54] [ERROR] WhatsApp belum ready
+[2026-07-15 13:30:06] [ERROR] WhatsApp belum ready
+[2026-07-15 13:30:18] [ERROR] WhatsApp belum ready
+[2026-07-15 13:30:30] [ERROR] WhatsApp belum ready
+[2026-07-15 13:30:42] [ERROR] WhatsApp belum ready
+[2026-07-15 13:30:54] [ERROR] WhatsApp belum ready
+[2026-07-15 13:31:06] [ERROR] WhatsApp belum ready
+[2026-07-15 13:31:19] [ERROR] WhatsApp belum ready
+[2026-07-15 13:31:31] [ERROR] WhatsApp belum ready
+[2026-07-15 13:31:43] [ERROR] WhatsApp belum ready
+[2026-07-15 13:31:55] [ERROR] WhatsApp belum ready
+[2026-07-15 14:24:35] [ERROR] WhatsApp belum ready
+[2026-07-15 14:24:47] [ERROR] WhatsApp belum ready
+[2026-07-15 14:24:59] [ERROR] WhatsApp belum ready
+[2026-07-15 14:25:11] [ERROR] WhatsApp belum ready
+[2026-07-15 14:58:20] [ERROR] WhatsApp belum ready
+[2026-07-15 14:59:42] [ERROR] WhatsApp belum ready
+[2026-07-15 14:59:55] [ERROR] WhatsApp belum ready
+[2026-07-15 15:00:07] [ERROR] WhatsApp belum ready
+[2026-07-15 15:00:19] [ERROR] WhatsApp belum ready
+[2026-07-15 15:00:31] [ERROR] WhatsApp belum ready
+[2026-07-15 15:00:43] [ERROR] WhatsApp belum ready
+[2026-07-15 15:00:55] [ERROR] WhatsApp belum ready
+[2026-07-15 15:01:07] [ERROR] WhatsApp belum ready
+[2026-07-15 15:02:22] [ERROR] WhatsApp belum ready
+[2026-07-15 15:02:34] [ERROR] WhatsApp belum ready
+[2026-07-15 15:02:46] [ERROR] WhatsApp belum ready
+[2026-07-15 15:02:59] [ERROR] WhatsApp belum ready
+[2026-07-15 15:03:11] [ERROR] WhatsApp belum ready
+[2026-07-15 15:03:23] [ERROR] WhatsApp belum ready
+[2026-07-15 15:03:35] [ERROR] WhatsApp belum ready
+[2026-07-15 15:03:47] [ERROR] WhatsApp belum ready
+[2026-07-15 15:03:59] [ERROR] WhatsApp belum ready
+[2026-07-15 15:04:11] [ERROR] WhatsApp belum ready
+[2026-07-15 15:05:09] [ERROR] WhatsApp belum ready
+[2026-07-15 15:05:21] [ERROR] WhatsApp belum ready
+[2026-07-15 15:05:33] [ERROR] WhatsApp belum ready
+[2026-07-15 15:05:45] [ERROR] WhatsApp belum ready
+[2026-07-15 15:05:57] [ERROR] WhatsApp belum ready
+[2026-07-15 15:06:09] [ERROR] WhatsApp belum ready
+[2026-07-15 15:06:21] [ERROR] WhatsApp belum ready

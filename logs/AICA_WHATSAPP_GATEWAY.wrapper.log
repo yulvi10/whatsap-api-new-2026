@@ -1,0 +1,120 @@
+2026-07-14 15:09:36,133 DEBUG - Starting WinSW in service mode
+2026-07-14 15:13:16,119 DEBUG - Starting WinSW in console mode
+2026-07-14 15:13:18,456 DEBUG - Starting WinSW in console mode
+2026-07-14 15:13:18,483 INFO  - Installing service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)'...
+2026-07-14 15:13:18,545 INFO  - Service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)' was installed successfully.
+2026-07-14 15:13:29,871 DEBUG - Starting WinSW in console mode
+2026-07-14 15:13:32,304 DEBUG - Starting WinSW in console mode
+2026-07-14 15:13:32,334 INFO  - Starting service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)'...
+2026-07-14 15:13:32,733 DEBUG - Starting WinSW in service mode
+2026-07-14 15:13:32,762 INFO  - Service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)' started successfully.
+2026-07-14 15:13:32,854 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:13:32,879 INFO  - Started process 13332
+2026-07-14 15:13:32,889 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:13:38,945 DEBUG - Starting WinSW in service mode
+2026-07-14 15:13:39,058 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:13:39,082 INFO  - Started process 19824
+2026-07-14 15:13:39,092 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:13:45,094 DEBUG - Starting WinSW in service mode
+2026-07-14 15:13:45,207 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:13:45,232 INFO  - Started process 8016
+2026-07-14 15:13:45,242 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:13:51,270 DEBUG - Starting WinSW in service mode
+2026-07-14 15:13:51,390 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:13:51,414 INFO  - Started process 3976
+2026-07-14 15:13:51,425 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:13:57,454 DEBUG - Starting WinSW in service mode
+2026-07-14 15:13:57,574 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:13:57,599 INFO  - Started process 18752
+2026-07-14 15:13:57,610 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:14:03,661 DEBUG - Starting WinSW in service mode
+2026-07-14 15:14:03,774 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:14:03,798 INFO  - Started process 15104
+2026-07-14 15:14:03,808 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:14:09,802 DEBUG - Starting WinSW in service mode
+2026-07-14 15:14:09,915 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:14:09,939 INFO  - Started process 12340
+2026-07-14 15:14:09,949 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:14:15,961 DEBUG - Starting WinSW in service mode
+2026-07-14 15:14:16,073 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:14:16,097 INFO  - Started process 18252
+2026-07-14 15:14:16,107 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:32:54,404 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 15:32:54,405 DEBUG - ProcessKill 18252
+2026-07-14 15:32:54,409 DEBUG - Stopping process 18252...
+2026-07-14 15:32:54,538 DEBUG - Process 18252 canceled with code 130.
+2026-07-14 15:32:54,542 INFO  - Finished AICA_WHATSAPP_GATEWAY
+2026-07-14 15:36:38,002 DEBUG - Starting WinSW in console mode
+2026-07-14 15:36:40,137 DEBUG - Starting WinSW in console mode
+2026-07-14 15:36:40,167 INFO  - Starting service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)'...
+2026-07-14 15:36:40,563 DEBUG - Starting WinSW in service mode
+2026-07-14 15:36:40,588 INFO  - Service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)' started successfully.
+2026-07-14 15:36:40,680 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 15:36:40,727 INFO  - Started process 6892
+2026-07-14 15:36:40,737 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 15:50:11,383 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 15:50:11,383 DEBUG - ProcessKill 6892
+2026-07-14 15:50:11,386 DEBUG - Stopping process 6892...
+2026-07-14 15:50:11,516 DEBUG - Process 6892 canceled with code 130.
+2026-07-14 15:50:11,518 INFO  - Finished AICA_WHATSAPP_GATEWAY
+2026-07-14 16:24:55,921 DEBUG - Starting WinSW in service mode
+2026-07-14 16:24:56,038 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 16:24:56,062 INFO  - Started process 3548
+2026-07-14 16:24:56,072 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 16:25:44,793 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 16:25:44,794 DEBUG - ProcessKill 3548
+2026-07-14 16:25:44,797 DEBUG - Stopping process 3548...
+2026-07-14 16:25:44,888 DEBUG - Process 3548 canceled with code 130.
+2026-07-14 16:25:44,892 ERROR - Failed to stop service.
+System.ComponentModel.Win32Exception (6): The handle is invalid.
+   at System.Diagnostics.Process.GetProcessTimes()
+   at System.Diagnostics.Process.get_StartTimeCore()
+   at System.Diagnostics.Process.get_StartTime()
+   at WinSW.Util.ProcessHelper.GetChildren(Process process)
+   at WinSW.Util.ProcessHelper.StopProcessTree(Process process, TimeSpan stopTimeout, Boolean stopParentProcessFirst)
+   at WinSW.WrapperService.DoStop()
+   at WinSW.WrapperService.OnStop()
+2026-07-14 16:25:53,916 DEBUG - Starting WinSW in service mode
+2026-07-14 16:25:54,028 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 16:25:54,052 INFO  - Started process 13796
+2026-07-14 16:25:54,062 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 16:25:58,044 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 16:25:58,045 DEBUG - ProcessKill 13796
+2026-07-14 16:25:58,049 DEBUG - Stopping process 13796...
+2026-07-14 16:25:58,166 DEBUG - Process 13796 canceled with code 130.
+2026-07-14 16:25:58,169 INFO  - Finished AICA_WHATSAPP_GATEWAY
+2026-07-14 16:35:27,881 DEBUG - Starting WinSW in service mode
+2026-07-14 16:35:27,998 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 16:35:28,022 INFO  - Started process 17080
+2026-07-14 16:35:28,032 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 16:43:08,396 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 16:43:08,396 DEBUG - ProcessKill 17080
+2026-07-14 16:43:08,400 DEBUG - Stopping process 17080...
+2026-07-14 16:43:08,547 DEBUG - Process 17080 canceled with code 130.
+2026-07-14 16:43:08,550 INFO  - Finished AICA_WHATSAPP_GATEWAY
+2026-07-14 16:43:18,169 DEBUG - Starting WinSW in console mode
+2026-07-14 16:43:20,099 DEBUG - Starting WinSW in console mode
+2026-07-14 16:43:20,129 INFO  - Starting service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)'...
+2026-07-14 16:43:20,527 DEBUG - Starting WinSW in service mode
+2026-07-14 16:43:20,553 INFO  - Service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)' started successfully.
+2026-07-14 16:43:20,674 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 16:43:20,699 INFO  - Started process 22780
+2026-07-14 16:43:20,708 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 16:43:36,661 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 16:43:36,662 DEBUG - ProcessKill 22780
+2026-07-14 16:43:36,665 DEBUG - Stopping process 22780...
+2026-07-14 16:43:36,771 DEBUG - Process 22780 canceled with code 130.
+2026-07-14 16:43:36,775 INFO  - Finished AICA_WHATSAPP_GATEWAY
+2026-07-14 16:46:21,441 DEBUG - Starting WinSW in console mode
+2026-07-14 16:46:23,311 DEBUG - Starting WinSW in console mode
+2026-07-14 16:46:23,341 INFO  - Starting service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)'...
+2026-07-14 16:46:23,742 DEBUG - Starting WinSW in service mode
+2026-07-14 16:46:23,768 INFO  - Service 'AICA WhatsApp Gateway (AICA_WHATSAPP_GATEWAY)' started successfully.
+2026-07-14 16:46:23,878 INFO  - Starting C:\Program Files\nodejs\node.exe E:\laragon\whatsap-api-new-2026\index.js
+2026-07-14 16:46:23,904 INFO  - Started process 21084
+2026-07-14 16:46:23,914 DEBUG - Forwarding logs of the process System.Diagnostics.Process (node) to WinSW.SizeBasedRollingLogAppender
+2026-07-14 16:55:43,498 INFO  - Stopping AICA_WHATSAPP_GATEWAY
+2026-07-14 16:55:43,499 DEBUG - ProcessKill 21084
+2026-07-14 16:55:43,501 DEBUG - Stopping process 21084...
+2026-07-14 16:55:43,637 DEBUG - Process 21084 canceled with code 130.
+2026-07-14 16:55:43,640 INFO  - Finished AICA_WHATSAPP_GATEWAY
