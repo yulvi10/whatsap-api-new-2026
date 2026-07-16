@@ -14,45 +14,24 @@ const dashboardRoutes = require('./routes/dashboard');
 const apiRoutes = require('./routes/api');
 
 const http = require('http');
-
 const socket = require('./socket/socket');
-
-const expressLayouts =
-    require('express-ejs-layouts');
 
 const app = express();
 const server = http.createServer(app);
+
 /*
 |--------------------------------------------------------------------------
 | View Engine
 |--------------------------------------------------------------------------
 */
-
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(expressLayouts);
-
-app.set(
-    'layout',
-    'layouts/master'
-);
-
-app.set(
-    'layout extractScripts',
-    true
-);
-
-app.set(
-    'layout extractStyles',
-    true
-);
 
 /*
 |--------------------------------------------------------------------------
 | Static Files
 |--------------------------------------------------------------------------
 */
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 /*
@@ -60,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 | Body Parser
 |--------------------------------------------------------------------------
 */
-
 app.use(express.json({
     limit: '20mb'
 }));
@@ -77,13 +55,9 @@ app.disable('x-powered-by');
 | Request Logger
 |--------------------------------------------------------------------------
 */
-
 app.use((req, res, next) => {
-
     logger.info(`${req.method} ${req.originalUrl}`);
-
     next();
-
 });
 
 /*
@@ -91,13 +65,8 @@ app.use((req, res, next) => {
 | Routes
 |--------------------------------------------------------------------------
 */
-// Dashboard
 app.use('/', dashboardRoutes);
-
-// API Lama (Backward Compatible)
 app.use('/', apiRoutes);
-
-// API Baru
 app.use('/api', apiRoutes);
 
 /*
@@ -105,17 +74,11 @@ app.use('/api', apiRoutes);
 | 404
 |--------------------------------------------------------------------------
 */
-
 app.use((req, res) => {
-
     return res.status(404).json({
-
         success: false,
-
         message: 'Endpoint Not Found'
-
     });
-
 });
 
 /*
@@ -123,19 +86,12 @@ app.use((req, res) => {
 | Error Handler
 |--------------------------------------------------------------------------
 */
-
 app.use((err, req, res, next) => {
-
     logger.error(err.stack || err);
-
     return res.status(500).json({
-
         success: false,
-
         message: err.message || 'Internal Server Error'
-
     });
-
 });
 
 /*
@@ -143,21 +99,14 @@ app.use((err, req, res, next) => {
 | Start Server
 |--------------------------------------------------------------------------
 */
-
 async function startServer() {
-
     try {
-
         await whatsapp.start();
-
         scheduler.start();
-
         watchdog.start();
-
         socket.initialize(server);
 
         server.listen(config.port, config.host, () => {
-
             logger.info('==========================================');
             logger.info('AICA WhatsApp Gateway v4');
             logger.info('==========================================');
@@ -165,29 +114,11 @@ async function startServer() {
             logger.info(`API : http://localhost:${config.port}/api`);
             logger.info('Gateway Ready');
             logger.info('==========================================');
-
         });
-
-        // app.listen(config.port, config.host, () => {
-
-        //     logger.info('==========================================');
-        //     logger.info('AICA WhatsApp Gateway v4');
-        //     logger.info('==========================================');
-        //     logger.info(`URL : http://localhost:${config.port}`);
-        //     logger.info(`API : http://localhost:${config.port}/api`);
-        //     logger.info('Gateway Ready');
-        //     logger.info('==========================================');
-
-        // });
-
     } catch (err) {
-
         logger.error(err);
-
         process.exit(1);
-
     }
-
 }
 
 /*
@@ -195,27 +126,16 @@ async function startServer() {
 | Shutdown
 |--------------------------------------------------------------------------
 */
-
 async function shutdown(signal) {
-
     logger.warn(`${signal} received`);
-
     try {
-
         scheduler.stop();
-
         watchdog.stop();
-
         await whatsapp.shutdown();
-
     } catch (err) {
-
         logger.error(err);
-
     }
-
     process.exit(0);
-
 }
 
 process.on('SIGINT', () => shutdown('SIGINT'));
