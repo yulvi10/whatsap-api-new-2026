@@ -5,10 +5,10 @@ const health = require('../services/healthService');
 exports.index = (req, res) => {
     const data = health.getHealth();
 
-    return res.render('dashboard', {
+    res.render('dashboard/index', {
         title: 'Dashboard',
         pageTitle: 'Dashboard',
         script: '/js/dashboard.js',
-        health: data
+        health: health.getHealth()
     });
 };

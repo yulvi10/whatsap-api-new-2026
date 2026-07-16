@@ -1,0 +1,461 @@
+/*
+|--------------------------------------------------------------------------
+| SIDEBAR
+|--------------------------------------------------------------------------
+*/
+
+#sidebar{
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    border-right:1px solid rgba(255,255,255,.05);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+*/
+
+.sidebar-header{
+
+    padding:24px 20px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.logo-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    background:#16a34a;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    color:#fff;
+
+    box-shadow:0 8px 20px rgba(34,197,94,.35);
+
+}
+
+.logo-text{
+
+    flex:1;
+
+}
+
+.logo-text .title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+.logo-text .version{
+
+    font-size:12px;
+
+    color:#94a3b8;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Gateway Status
+|--------------------------------------------------------------------------
+*/
+
+.sidebar-status{
+
+    padding:20px;
+
+}
+
+.status-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    padding:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.status-dot{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    display:block;
+
+    animation:pulse 2s infinite;
+
+}
+
+.status-title{
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+}
+
+.status-text{
+
+    color:#22c55e;
+
+    font-weight:700;
+
+    font-size:15px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Menu
+|--------------------------------------------------------------------------
+*/
+
+.sidebar-menu{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:10px 0;
+
+}
+
+.sidebar-menu li{
+
+    margin:6px 12px;
+
+}
+
+.sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+    font-weight:500;
+
+}
+
+.sidebar-menu a i{
+
+    font-size:18px;
+
+    width:22px;
+
+    text-align:center;
+
+}
+
+.sidebar-menu a:hover{
+
+    background:#1e293b;
+
+    color:#ffffff;
+
+    transform:translateX(4px);
+
+}
+
+.sidebar-menu a.active{
+
+    background:#16a34a;
+
+    color:#ffffff;
+
+    box-shadow:0 8px 20px rgba(34,197,94,.25);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Quick Action
+|--------------------------------------------------------------------------
+*/
+
+.sidebar-action{
+
+    padding:20px;
+
+}
+
+.sidebar-action .btn{
+
+    height:45px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+}
+
+.sidebar-action .btn-success{
+
+    background:#16a34a;
+
+    border:none;
+
+}
+
+.sidebar-action .btn-warning{
+
+    color:#fff;
+
+}
+
+.sidebar-action .btn-danger{
+
+    border:none;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Gateway Info
+|--------------------------------------------------------------------------
+*/
+
+.gateway-info{
+
+    margin:0 20px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.info-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:8px 0;
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+}
+
+.info-item:not(:last-child){
+
+    border-bottom:1px dashed rgba(255,255,255,.08);
+
+}
+
+.info-item strong{
+
+    color:#ffffff;
+
+    font-weight:600;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Footer
+|--------------------------------------------------------------------------
+*/
+
+.sidebar-footer{
+
+    margin-top:auto;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Animation
+|--------------------------------------------------------------------------
+*/
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(34,197,94,.7);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 12px rgba(34,197,94,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(34,197,94,0);
+
+    }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Collapse
+|--------------------------------------------------------------------------
+*/
+
+#sidebar.collapsed{
+
+    width:85px;
+
+}
+
+#sidebar.collapsed .logo-text,
+
+#sidebar.collapsed .status-card div:last-child,
+
+#sidebar.collapsed .sidebar-menu span,
+
+#sidebar.collapsed .gateway-info,
+
+#sidebar.collapsed .sidebar-footer,
+
+#sidebar.collapsed .sidebar-action{
+
+    display:none;
+
+}
+
+#sidebar.collapsed .sidebar-menu a{
+
+    justify-content:center;
+
+}
+
+#sidebar.collapsed .sidebar-menu i{
+
+    margin:0;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Mobile
+|--------------------------------------------------------------------------
+*/
+
+@media(max-width:992px){
+
+    #sidebar{
+
+        position:fixed;
+
+        left:-280px;
+
+        width:280px;
+
+        transition:.3s;
+
+        z-index:9999;
+
+    }
+
+    #sidebar.show{
+
+        left:0;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .logo-icon{
+
+        width:44px;
+
+        height:44px;
+
+        font-size:20px;
+
+    }
+
+    .logo-text .title{
+
+        font-size:16px;
+
+    }
+
+}
