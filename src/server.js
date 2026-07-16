@@ -17,6 +17,9 @@ const http = require('http');
 
 const socket = require('./socket/socket');
 
+const expressLayouts =
+    require('express-ejs-layouts');
+
 const app = express();
 const server = http.createServer(app);
 /*
@@ -27,6 +30,22 @@ const server = http.createServer(app);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(expressLayouts);
+
+app.set(
+    'layout',
+    'layouts/master'
+);
+
+app.set(
+    'layout extractScripts',
+    true
+);
+
+app.set(
+    'layout extractStyles',
+    true
+);
 
 /*
 |--------------------------------------------------------------------------

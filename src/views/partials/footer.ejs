@@ -1,9 +1,85 @@
-<footer class="footer">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">© 2026 PT AICA INDRIA</div>
+<!-- ==========================================================
+    FOOTER
+=========================================================== -->
 
-      <div class="col-md-6 text-end">WhatsApp Gateway Enterprise v5</div>
+<footer class="footer border-top bg-white mt-auto">
+  <div class="container-fluid">
+    <div class="row align-items-center py-3">
+      <!-- Left -->
+
+      <div class="col-md-4">
+        <strong> AICA WhatsApp Gateway </strong>
+
+        <br />
+
+        <small class="text-muted"> Enterprise Edition </small>
+      </div>
+
+      <!-- Center -->
+
+      <div class="col-md-4 text-center">
+        <div class="row">
+          <div class="col">
+            <small class="text-muted"> Version </small>
+
+            <div>
+              <strong> v5.0.0 </strong>
+            </div>
+          </div>
+
+          <div class="col">
+            <small class="text-muted"> Node </small>
+
+            <div>
+              <strong id="footer-node"> -- </strong>
+            </div>
+          </div>
+
+          <div class="col">
+            <small class="text-muted"> Queue </small>
+
+            <div>
+              <strong id="footer-queue"> 0 </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+
+      <div class="col-md-4 text-end">
+        <div>
+          <span id="footer-status" class="badge bg-success"> CONNECTED </span>
+        </div>
+
+        <small id="footer-time" class="text-muted"> -- </small>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">
+        <small> © <%= new Date().getFullYear() %> PT AICA INDRIA </small>
+      </div>
+
+      <div class="col-md-6 text-end">
+        <small>
+          Developed by
+
+          <strong> Yulvi Setiyawan </strong>
+        </small>
+      </div>
     </div>
   </div>
 </footer>
+
+<script>
+  setInterval(function () {
+    const el = document.getElementById("footer-time");
+
+    if (el) {
+      el.innerHTML = new Date().toLocaleString();
+    }
+  }, 1000);
+</script>

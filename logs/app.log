@@ -10121,3 +10121,266 @@ https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:110:408
 [2026-07-16 09:09:51] [INFO] STATUS : notLogged
 [2026-07-16 09:10:31] [INFO] STATUS : browserClose
 [2026-07-16 09:10:32] [INFO] STATUS : qrReadError
+[2026-07-16 11:58:22] [INFO] ====================================
+[2026-07-16 11:58:22] [INFO] STARTING WHATSAPP
+[2026-07-16 11:58:22] [INFO] ====================================
+[2026-07-16 11:58:24] [INFO] STATUS : inChat
+[2026-07-16 11:58:24] [INFO] STATUS : notLogged
+[2026-07-16 11:58:25] [INFO] STATUS : disconnectedMobile
+[2026-07-16 11:58:25] [INFO] STATUS : qrReadError
+[2026-07-16 11:58:50] [INFO] ====================================
+[2026-07-16 11:58:50] [INFO] STARTING WHATSAPP
+[2026-07-16 11:58:50] [INFO] ====================================
+[2026-07-16 11:58:54] [INFO] STATUS : inChat
+[2026-07-16 11:58:54] [INFO] STATUS : inChat
+[2026-07-16 11:58:54] [INFO] STATUS : notLogged
+[2026-07-16 11:59:23] [WARN] SIGINT received
+[2026-07-16 11:59:38] [INFO] ====================================
+[2026-07-16 11:59:38] [INFO] STARTING WHATSAPP
+[2026-07-16 11:59:38] [INFO] ====================================
+[2026-07-16 11:59:41] [INFO] STATUS : inChat
+[2026-07-16 11:59:41] [INFO] STATUS : notLogged
+[2026-07-16 11:59:42] [INFO] QR GENERATED
+[2026-07-16 11:59:42] [INFO] STATUS : disconnectedMobile
+[2026-07-16 11:59:59] [INFO] STATUS : qrReadSuccess
+[2026-07-16 11:59:59] [INFO] CONNECTED : -
+[2026-07-16 11:59:59] [INFO] [SCHEDULER] Starting...
+[2026-07-16 11:59:59] [INFO] [SCHEDULER] Started
+[2026-07-16 11:59:59] [INFO] [WATCHDOG] Started
+[2026-07-16 11:59:59] [INFO] ==========================================
+[2026-07-16 11:59:59] [INFO] AICA WhatsApp Gateway v4
+[2026-07-16 11:59:59] [INFO] ==========================================
+[2026-07-16 11:59:59] [INFO] URL : http://localhost:8088
+[2026-07-16 11:59:59] [INFO] API : http://localhost:8088/api
+[2026-07-16 11:59:59] [INFO] Gateway Ready
+[2026-07-16 11:59:59] [INFO] ==========================================
+[2026-07-16 12:00:01] [INFO] STATE : OPENING
+[2026-07-16 12:00:02] [INFO] STATE : PAIRING
+[2026-07-16 12:00:02] [INFO] STATE : CONNECTED
+[2026-07-16 12:00:12] [INFO] GET /
+[2026-07-16 12:00:12] [INFO] GET /favicon.ico
+[2026-07-16 12:00:29] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:00:29] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:00:59] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:00:59] [INFO] [HEALTH] READY=true STATUS=CONNECTED
+[2026-07-16 12:00:59] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:00:59] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:01:29] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:01:29] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:01:59] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:01:59] [INFO] [HEALTH] READY=true STATUS=CONNECTED
+[2026-07-16 12:02:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:02:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:02:07] [INFO] GET /
+[2026-07-16 12:02:30] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:02:30] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:02:59] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:02:59] [INFO] [HEALTH] READY=true STATUS=CONNECTED
+[2026-07-16 12:03:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:03:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:03:30] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:03:30] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:03:59] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:03:59] [INFO] [HEALTH] READY=true STATUS=CONNECTED
+[2026-07-16 12:04:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:04:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:04:30] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:04:30] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:05:00] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:05:00] [INFO] [HEALTH] READY=true STATUS=CONNECTED
+[2026-07-16 12:05:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:05:00] [INFO] [WATCHDOG] READY=true STATUS=CONNECTED
+[2026-07-16 12:05:08] [INFO] STATE : CONNECTED
+[2026-07-16 12:05:08] [INFO] STATUS : inChat
+[2026-07-16 12:05:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:05:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:06:00] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:06:00] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:06:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:06:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:06:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:06:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:07:00] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:07:00] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:07:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:07:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:07:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:07:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:08:00] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:08:00] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:08:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:08:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:08:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:08:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:09:00] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:09:00] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:09:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:09:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:09:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:09:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:10:00] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:10:00] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:10:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:10:00] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:10:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:10:30] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:10:43] [WARN] SIGINT received
+[2026-07-16 12:10:45] [INFO] ====================================
+[2026-07-16 12:10:45] [INFO] STARTING WHATSAPP
+[2026-07-16 12:10:45] [INFO] ====================================
+[2026-07-16 12:10:47] [INFO] STATUS : isLogged
+[2026-07-16 12:10:48] [INFO] CONNECTED : -
+[2026-07-16 12:10:48] [INFO] [SCHEDULER] Starting...
+[2026-07-16 12:10:48] [INFO] [SCHEDULER] Started
+[2026-07-16 12:10:48] [INFO] [WATCHDOG] Started
+[2026-07-16 12:10:48] [INFO] ==========================================
+[2026-07-16 12:10:48] [INFO] AICA WhatsApp Gateway v4
+[2026-07-16 12:10:48] [INFO] ==========================================
+[2026-07-16 12:10:48] [INFO] URL : http://localhost:8088
+[2026-07-16 12:10:48] [INFO] API : http://localhost:8088/api
+[2026-07-16 12:10:48] [INFO] Gateway Ready
+[2026-07-16 12:10:48] [INFO] ==========================================
+[2026-07-16 12:10:48] [INFO] STATUS : inChat
+[2026-07-16 12:10:56] [INFO] GET /
+[2026-07-16 12:10:56] [ERROR] SyntaxError: Invalid or unexpected token in E:\laragon\whatsap-api-new-2026\src\views\layouts\master.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+    at new Function (<anonymous>)
+    at Template.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:607:18)
+    at Object.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:359:18)
+    at handleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:216:16)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:22)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+[2026-07-16 12:11:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:11:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:11:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:11:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:11:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:11:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:12:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:12:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:12:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:12:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:12:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:12:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:13:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:13:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:13:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:13:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:13:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:13:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:14:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:14:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:14:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:14:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:14:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:14:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:15:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:15:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:15:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:15:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:15:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:15:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:16:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:16:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:16:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:16:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:16:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:16:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:17:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:17:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:17:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:17:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:17:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:17:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:18:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:18:18] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:18:48] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:18:48] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:18:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:18:48] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:19:12] [INFO] GET /
+[2026-07-16 12:19:12] [ERROR] SyntaxError: Invalid or unexpected token in E:\laragon\whatsap-api-new-2026\src\views\layouts\master.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+    at new Function (<anonymous>)
+    at Template.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:607:18)
+    at Object.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:359:18)
+    at handleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:216:16)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:22)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+[2026-07-16 12:19:17] [WARN] SIGINT received
+[2026-07-16 12:19:20] [INFO] ====================================
+[2026-07-16 12:19:20] [INFO] STARTING WHATSAPP
+[2026-07-16 12:19:20] [INFO] ====================================
+[2026-07-16 12:19:22] [INFO] STATUS : isLogged
+[2026-07-16 12:19:24] [INFO] CONNECTED : -
+[2026-07-16 12:19:24] [INFO] [SCHEDULER] Starting...
+[2026-07-16 12:19:24] [INFO] [SCHEDULER] Started
+[2026-07-16 12:19:24] [INFO] [WATCHDOG] Started
+[2026-07-16 12:19:24] [INFO] ==========================================
+[2026-07-16 12:19:24] [INFO] AICA WhatsApp Gateway v4
+[2026-07-16 12:19:24] [INFO] ==========================================
+[2026-07-16 12:19:24] [INFO] URL : http://localhost:8088
+[2026-07-16 12:19:24] [INFO] API : http://localhost:8088/api
+[2026-07-16 12:19:24] [INFO] Gateway Ready
+[2026-07-16 12:19:24] [INFO] ==========================================
+[2026-07-16 12:19:24] [INFO] GET /
+[2026-07-16 12:19:24] [ERROR] SyntaxError: Invalid or unexpected token in E:\laragon\whatsap-api-new-2026\src\views\layouts\master.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+    at new Function (<anonymous>)
+    at Template.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:607:18)
+    at Object.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:359:18)
+    at handleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:216:16)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:22)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+[2026-07-16 12:19:24] [INFO] STATUS : inChat
+[2026-07-16 12:19:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:19:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:20:24] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:20:24] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:20:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:20:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:20:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:20:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:21:24] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:21:24] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:21:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:21:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:21:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:21:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:22:24] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:22:24] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:22:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:22:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:22:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:22:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:23:24] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:23:24] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:23:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:23:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:23:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:23:54] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:24:24] [INFO] [QUEUE] Waiting=0 Processing=0
+[2026-07-16 12:24:24] [INFO] [HEALTH] READY=true STATUS=inChat
+[2026-07-16 12:24:24] [INFO] [WATCHDOG] READY=true STATUS=inChat
+[2026-07-16 12:24:24] [INFO] [WATCHDOG] READY=true STATUS=inChat

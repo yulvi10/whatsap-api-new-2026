@@ -258,3 +258,49 @@ https://static.whatsapp.net/rsrc.php/v4/y2/r/qbgTuDFCdXh.js:110:408
 [2026-07-15 15:06:09] [ERROR] WhatsApp belum ready
 [2026-07-15 15:06:21] [ERROR] WhatsApp belum ready
 [2026-07-16 09:10:32] [ERROR] Page Closed
+[2026-07-16 11:58:25] [ERROR] Auto Close Called
+[2026-07-16 12:10:56] [ERROR] SyntaxError: Invalid or unexpected token in E:\laragon\whatsap-api-new-2026\src\views\layouts\master.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+    at new Function (<anonymous>)
+    at Template.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:607:18)
+    at Object.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:359:18)
+    at handleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:216:16)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:22)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+[2026-07-16 12:19:12] [ERROR] SyntaxError: Invalid or unexpected token in E:\laragon\whatsap-api-new-2026\src\views\layouts\master.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+    at new Function (<anonymous>)
+    at Template.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:607:18)
+    at Object.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:359:18)
+    at handleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:216:16)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:22)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)
+[2026-07-16 12:19:24] [ERROR] SyntaxError: Invalid or unexpected token in E:\laragon\whatsap-api-new-2026\src\views\layouts\master.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option.
+    at new Function (<anonymous>)
+    at Template.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:607:18)
+    at Object.compile (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:359:18)
+    at handleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:216:16)
+    at tryHandleCache (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:253:22)
+    at ejs.renderFile [as engine] (E:\laragon\whatsap-api-new-2026\node_modules\ejs\lib\cjs\ejs.js:444:12)
+    at View.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:627:10)
+    at Function.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (E:\laragon\whatsap-api-new-2026\node_modules\express\lib\response.js:923:7)

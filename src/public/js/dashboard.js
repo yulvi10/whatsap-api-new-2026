@@ -23,4 +23,19 @@ socket.on('health', data => {
     document.getElementById('uptime').innerText =
         data.uptime.formatted;
 
+    document.getElementById("sidebar-memory").innerHTML =
+        health.memory.rss;
+
+    document.getElementById("sidebar-cpu").innerHTML =
+        health.cpu.cores + " Core";
+
+    document.getElementById("sidebar-status").innerHTML =
+        health.whatsapp.status;
+
+    document.getElementById("navbar-status").innerHTML =
+        health.whatsapp.status;
+
+    document.getElementById("navbar-queue").innerHTML =
+        health.queue.waiting;
+
 });

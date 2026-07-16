@@ -1,113 +1,173 @@
-<aside id="sidebar">
-  <div class="sidebar-header">
-    <div class="logo">
-      <i class="bi bi-whatsapp text-success"></i>
+<!-- =======================================================
+     SIDEBAR
+======================================================= -->
+
+<div class="sidebar-header">
+  <div class="logo">
+    <div class="logo-icon">
+      <i class="bi bi-whatsapp"></i>
+    </div>
+
+    <div class="logo-text">
+      <div class="title">AICA Gateway</div>
+
+      <div class="version">Enterprise v5</div>
+    </div>
+  </div>
+</div>
+
+<!-- =======================================================
+     STATUS
+======================================================= -->
+
+<div class="sidebar-status">
+  <div class="status-card">
+    <div class="status-icon">
+      <span id="sidebar-status-dot" class="status-dot bg-success"> </span>
     </div>
 
     <div>
-      <div class="sidebar-title">AICA Gateway</div>
+      <div class="status-title">Gateway</div>
 
-      <div class="sidebar-version">Enterprise v5</div>
+      <div id="sidebar-status" class="status-text">CONNECTED</div>
     </div>
   </div>
+</div>
 
-  <hr />
+<!-- =======================================================
+     MENU
+======================================================= -->
 
-  <div class="menu-title">MAIN MENU</div>
+<ul class="sidebar-menu">
+  <li>
+    <a href="/">
+      <i class="bi bi-speedometer2"></i>
 
-  <ul class="sidebar-menu">
-    <li>
-      <a href="/" class="menu-link active">
-        <i class="bi bi-speedometer2"></i>
+      Dashboard
+    </a>
+  </li>
 
-        Dashboard
-      </a>
-    </li>
+  <li>
+    <a href="/monitoring">
+      <i class="bi bi-cpu"></i>
 
-    <li>
-      <a href="/monitoring" class="menu-link">
-        <i class="bi bi-display"></i>
+      Monitoring
+    </a>
+  </li>
 
-        Monitoring
-      </a>
-    </li>
+  <li>
+    <a href="/analytics">
+      <i class="bi bi-bar-chart-line"></i>
 
-    <li>
-      <a href="/analytics" class="menu-link">
-        <i class="bi bi-bar-chart-line"></i>
+      Analytics
+    </a>
+  </li>
 
-        Analytics
-      </a>
-    </li>
+  <li>
+    <a href="/queue">
+      <i class="bi bi-list-task"></i>
 
-    <li>
-      <a href="/queue" class="menu-link">
-        <i class="bi bi-list-task"></i>
+      Queue
+    </a>
+  </li>
 
-        Queue
-      </a>
-    </li>
-  </ul>
+  <li>
+    <a href="/logs">
+      <i class="bi bi-terminal"></i>
 
-  <hr />
+      Live Logs
+    </a>
+  </li>
 
-  <div class="menu-title">WHATSAPP</div>
+  <li>
+    <a href="/session">
+      <i class="bi bi-phone"></i>
 
-  <ul class="sidebar-menu">
-    <li>
-      <a href="/session" class="menu-link">
-        <i class="bi bi-phone"></i>
+      Session
+    </a>
+  </li>
 
-        Session
-      </a>
-    </li>
+  <li>
+    <a href="/backup">
+      <i class="bi bi-cloud-arrow-down"></i>
 
-    <li>
-      <a href="/logs" class="menu-link">
-        <i class="bi bi-journal-text"></i>
+      Backup
+    </a>
+  </li>
 
-        Logs
-      </a>
-    </li>
+  <li>
+    <a href="/settings">
+      <i class="bi bi-gear"></i>
 
-    <li>
-      <a href="/backup" class="menu-link">
-        <i class="bi bi-cloud-arrow-down"></i>
+      Settings
+    </a>
+  </li>
+</ul>
 
-        Backup
-      </a>
-    </li>
-  </ul>
+<!-- =======================================================
+     QUICK ACTION
+======================================================= -->
 
-  <hr />
+<div class="sidebar-action">
+  <button id="btnReconnect" class="btn btn-success w-100 mb-2">
+    <i class="bi bi-arrow-repeat"></i>
 
-  <div class="menu-title">SYSTEM</div>
+    Reconnect
+  </button>
 
-  <ul class="sidebar-menu">
-    <li>
-      <a href="/settings" class="menu-link">
-        <i class="bi bi-gear"></i>
+  <button id="btnRestart" class="btn btn-warning w-100 mb-2">
+    <i class="bi bi-bootstrap-reboot"></i>
 
-        Settings
-      </a>
-    </li>
+    Restart
+  </button>
 
-    <li>
-      <a href="/about" class="menu-link">
-        <i class="bi bi-info-circle"></i>
+  <button id="btnLogout" class="btn btn-danger w-100">
+    <i class="bi bi-box-arrow-right"></i>
 
-        About
-      </a>
-    </li>
-  </ul>
+    Logout
+  </button>
+</div>
 
-  <div class="sidebar-footer">
-    <div class="gateway-status">
-      <span class="status-dot bg-success"> </span>
+<!-- =======================================================
+     GATEWAY INFO
+======================================================= -->
 
-      Gateway Running
-    </div>
+<div class="gateway-info">
+  <div class="info-item">
+    <span> Version </span>
 
-    <div class="version">Build 2026.07</div>
+    <strong> 5.0.0 </strong>
   </div>
-</aside>
+
+  <div class="info-item">
+    <span> Queue </span>
+
+    <strong id="sidebar-queue"> 0 </strong>
+  </div>
+
+  <div class="info-item">
+    <span> Memory </span>
+
+    <strong id="sidebar-memory"> -- </strong>
+  </div>
+
+  <div class="info-item">
+    <span> CPU </span>
+
+    <strong id="sidebar-cpu"> -- </strong>
+  </div>
+
+  <div class="info-item">
+    <span> Uptime </span>
+
+    <strong id="sidebar-uptime"> 0m </strong>
+  </div>
+</div>
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<div class="sidebar-footer">
+  <small> © PT AICA INDRIA </small>
+</div>

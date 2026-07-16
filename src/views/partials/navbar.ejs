@@ -1,44 +1,139 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
-  <div class="container-fluid">
-    <div>
-      <h4 class="fw-bold mb-0">Dashboard</h4>
+<!-- ==========================================================
+    TOP NAVBAR
+=========================================================== -->
 
-      <small class="text-muted"> AICA WhatsApp Gateway Enterprise </small>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container-fluid">
+    <!-- Sidebar Toggle -->
+
+    <button class="btn btn-light me-3" id="sidebarToggle">
+      <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <!-- Page Title -->
+
+    <div>
+      <h4 class="mb-0 fw-bold">
+        <%= typeof pageTitle !== 'undefined' ? pageTitle : 'Dashboard' %>
+      </h4>
+
+      <small class="text-muted"> Enterprise WhatsApp Gateway </small>
     </div>
 
-    <ul class="navbar-nav ms-auto align-items-center">
-      <li class="nav-item me-4">
-        <div class="text-end">
-          <div id="current-time" class="fw-bold">--:--:--</div>
+    <div class="ms-auto d-flex align-items-center">
+      <!-- Clock -->
 
-          <small class="text-muted"> Server Time </small>
-        </div>
-      </li>
+      <div class="me-4 text-end">
+        <div id="current-time" class="fw-bold">--:--:--</div>
 
-      <li class="nav-item me-3">
-        <span class="badge bg-success px-3 py-2">
-          <i class="bi bi-wifi"></i>
+        <small class="text-muted"> Realtime </small>
+      </div>
 
-          <span id="navbar-status"> CONNECTED </span>
-        </span>
-      </li>
+      <!-- Gateway Status -->
 
-      <li class="nav-item me-3">
-        <span class="badge bg-primary px-3 py-2">
-          Queue
+      <div class="me-3">
+        <span id="navbar-status" class="badge bg-success"> CONNECTED </span>
+      </div>
+
+      <!-- Queue -->
+
+      <div class="me-3">
+        <span class="badge bg-primary">
+          Queue :
 
           <span id="navbar-queue"> 0 </span>
         </span>
-      </li>
+      </div>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-person-circle fs-4"></i>
-        </a>
+      <!-- Notification -->
+
+      <div class="dropdown me-3">
+        <button
+          class="btn btn-light position-relative"
+          data-bs-toggle="dropdown"
+        >
+          <i class="bi bi-bell fs-5"></i>
+
+          <span
+            id="notification-count"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            0
+          </span>
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-end p-0" style="width: 320px">
+          <div class="p-3 border-bottom">
+            <strong> Notifications </strong>
+          </div>
+
+          <div
+            id="notification-list"
+            style="
+              max-height: 350px;
+
+              overflow: auto;
+            "
+          >
+            <div class="p-4 text-center text-muted">No Notification</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Mode -->
+
+      <button class="btn btn-light me-3" onclick="toggleDarkMode()">
+        <i class="bi bi-moon-stars"></i>
+      </button>
+
+      <!-- Quick Action -->
+
+      <div class="dropdown me-3">
+        <button class="btn btn-success" data-bs-toggle="dropdown">
+          Action
+        </button>
 
         <ul class="dropdown-menu dropdown-menu-end">
           <li>
-            <h6 class="dropdown-header">AICA Gateway</h6>
+            <a class="dropdown-item" href="#" id="menuReconnect">
+              <i class="bi bi-arrow-repeat"></i>
+
+              Reconnect
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#" id="menuRestart">
+              <i class="bi bi-bootstrap-reboot"></i>
+
+              Restart Gateway
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#" id="menuLogout">
+              <i class="bi bi-box-arrow-right"></i>
+
+              Logout Device
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- User -->
+
+      <div class="dropdown">
+        <button class="btn btn-light" data-bs-toggle="dropdown">
+          <i class="bi bi-person-circle fs-4"></i>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <div class="dropdown-header">Administrator</div>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider" />
           </li>
 
           <li>
@@ -50,26 +145,14 @@
           </li>
 
           <li>
-            <a class="dropdown-item" href="/logs">
-              <i class="bi bi-journal-text"></i>
+            <a class="dropdown-item" href="/about">
+              <i class="bi bi-info-circle"></i>
 
-              Logs
+              About
             </a>
           </li>
-
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-
-          <li>
-            <button id="btn-restart" class="dropdown-item">
-              <i class="bi bi-arrow-clockwise"></i>
-
-              Restart Gateway
-            </button>
-          </li>
         </ul>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </nav>
