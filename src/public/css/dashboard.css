@@ -1,29 +1,543 @@
-body {
+/*
+|--------------------------------------------------------------------------
+| DASHBOARD
+|--------------------------------------------------------------------------
+*/
 
-    background: #edf2f7;
+/*
+|--------------------------------------------------------------------------
+| Hero
+|--------------------------------------------------------------------------
+*/
+
+.dashboard-hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+
+    color:#fff;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 35px rgba(22,163,74,.18);
 
 }
 
-.card {
+.dashboard-hero::before{
 
-    border: none;
+    content:"";
 
-    border-radius: 15px;
+    position:absolute;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+    right:-80px;
+
+    top:-80px;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
 
 }
 
-.card-header {
+.dashboard-hero::after{
 
-    background: #fff;
+    content:"";
 
-    font-weight: bold;
+    position:absolute;
+
+    left:-60px;
+
+    bottom:-60px;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
 
 }
 
-h2 {
+.dashboard-hero h2{
 
-    font-weight: bold;
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.dashboard-hero p{
+
+    opacity:.85;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| KPI Card
+|--------------------------------------------------------------------------
+*/
+
+.stat-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+    cursor:default;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.08);
+
+}
+
+.stat-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-25px;
+
+    top:-25px;
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:rgba(22,163,74,.05);
+
+}
+
+.stat-label{
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+    letter-spacing:.6px;
+
+    color:#94a3b8;
+
+}
+
+.stat-value{
+
+    margin-top:12px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.stat-meta{
+
+    margin-top:16px;
+
+    font-size:13px;
+
+    color:#64748b;
+
+}
+
+.stat-meta .status-dot{
+
+    width:12px;
+
+    height:12px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Panel
+|--------------------------------------------------------------------------
+*/
+
+.panel-card{
+
+    overflow:hidden;
+
+}
+
+.panel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#fff;
+
+}
+
+.panel-header h5{
+
+    font-weight:700;
+
+}
+
+.panel-header small{
+
+    color:#94a3b8;
+
+}
+
+.panel-body{
+
+    background:#fff;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Chart
+|--------------------------------------------------------------------------
+*/
+
+#gatewayChart{
+
+    width:100%;
+
+    min-height:320px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Info
+|--------------------------------------------------------------------------
+*/
+
+.info-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.info-list li{
+
+    transition:.2s;
+
+}
+
+.info-list li:hover{
+
+    padding-left:8px;
+
+}
+
+.info-list span{
+
+    color:#64748b;
+
+}
+
+.info-list strong{
+
+    color:#111827;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Live Log
+|--------------------------------------------------------------------------
+*/
+
+.live-log{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.log-item{
+
+    background:#111827;
+
+    color:#22c55e;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-family:Consolas,monospace;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.log-item.info{
+
+    color:#22c55e;
+
+}
+
+.log-item.warning{
+
+    color:#facc15;
+
+}
+
+.log-item.error{
+
+    color:#ef4444;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Quick Action
+|--------------------------------------------------------------------------
+*/
+
+.panel-body .btn{
+
+    height:48px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+#btnRestart2{
+
+    background:#dc2626;
+
+    border:none;
+
+}
+
+#btnReconnect2{
+
+    background:#d97706;
+
+    color:#fff;
+
+    border:none;
+
+}
+
+#btnGenerateQr{
+
+    background:#16a34a;
+
+    border:none;
+
+}
+
+#btnBackup{
+
+    background:#2563eb;
+
+    border:none;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| QR Panel
+|--------------------------------------------------------------------------
+*/
+
+.qr-panel{
+
+    text-align:center;
+
+}
+
+.qr-panel img{
+
+    width:260px;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    padding:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Progress
+|--------------------------------------------------------------------------
+*/
+
+.progress{
+
+    height:10px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    border-radius:30px;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Badge
+|--------------------------------------------------------------------------
+*/
+
+.badge-online{
+
+    background:#16a34a;
+
+}
+
+.badge-offline{
+
+    background:#dc2626;
+
+}
+
+.badge-warning{
+
+    background:#d97706;
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Animation
+|--------------------------------------------------------------------------
+*/
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media(max-width:1200px){
+
+    .dashboard-hero h2{
+
+        font-size:28px;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .dashboard-hero{
+
+        text-align:center;
+
+    }
+
+    .dashboard-hero .d-flex{
+
+        justify-content:center!important;
+
+    }
+
+    .panel-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .stat-value{
+
+        font-size:28px;
+
+    }
+
+    #gatewayChart{
+
+        min-height:240px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .dashboard-hero{
+
+        padding:20px!important;
+
+    }
+
+    .dashboard-hero h2{
+
+        font-size:24px;
+
+    }
+
+    .panel-body{
+
+        padding:18px;
+
+    }
 
 }
