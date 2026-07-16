@@ -1,16 +1,24 @@
 'use strict';
 
-const { Server } = require('socket.io');
-
 let io = null;
 
 function initialize(server) {
+
+    const { Server } = require('socket.io');
 
     io = new Server(server, {
 
         cors: {
 
-            origin: '*'
+            origin: "*",
+
+            methods: [
+
+                "GET",
+
+                "POST"
+
+            ]
 
         }
 
@@ -18,13 +26,27 @@ function initialize(server) {
 
     io.on('connection', socket => {
 
-        console.log('Dashboard Connected');
+        console.log(
 
-        socket.on('disconnect', () => {
+            'Dashboard Connected'
 
-            console.log('Dashboard Disconnected');
+        );
 
-        });
+        socket.on(
+
+            'disconnect',
+
+            () => {
+
+                console.log(
+
+                    'Dashboard Disconnected'
+
+                );
+
+            }
+
+        );
 
     });
 
@@ -32,17 +54,77 @@ function initialize(server) {
 
 function emit(event, data) {
 
-    if (io) {
+    if (!io) return;
 
-        io.emit(event, data);
-
-    }
+    io.emit(event, data);
 
 }
 
-function getIO() {
+function emitStatus(data) {
 
-    return io;
+    emit(
+
+        'status',
+
+        data
+
+    );
+
+}
+
+function emitHealth(data) {
+
+    emit(
+
+        'health',
+
+        data
+
+    );
+
+}
+
+function emitQueue(data) {
+
+    emit(
+
+        'queue',
+
+        data
+
+    );
+
+}
+
+function emitQR(data) {
+
+    emit(
+
+        'qr',
+
+        data
+
+    );
+
+}
+
+function emitLog(level, message) {
+
+    emit(
+
+        'log',
+
+        {
+
+            level,
+
+            message,
+
+            time: new Date()
+
+        }
+
+    );
 
 }
 
@@ -52,6 +134,20 @@ module.exports = {
 
     emit,
 
-    getIO
+    emitStatus,
+
+    emitHealth,
+
+    emitQueue,
+
+    emitQR,
+
+    emitLog,
+
+    getIO() {
+
+        return io;
+
+    }
 
 };

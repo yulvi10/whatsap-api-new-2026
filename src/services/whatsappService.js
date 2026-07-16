@@ -5,6 +5,7 @@ const path = require('path');
 
 const logger = require('../helpers/logger');
 const config = require('../config/config');
+const socket = require('../socket/socket');
 
 let client = null;
 
@@ -122,6 +123,22 @@ async function start() {
 
                 qrCode = base64Qr;
 
+                socket.emitQR({
+
+                    qr: true,
+
+                    image: base64Qr
+
+                });
+
+                socket.emitLog(
+
+                    'info',
+
+                    'QR Code Generated'
+
+                );
+
                 console.clear();
 
                 console.log(asciiQR);
@@ -141,6 +158,16 @@ async function start() {
             statusFind(currentStatus) {
 
                 status = currentStatus;
+
+                socket.emitStatus({
+
+                    ready: isReady,
+
+                    status: currentStatus,
+
+                    phone: phoneNumber
+
+                });
 
                 logger.info(
                     'STATUS : ' + currentStatus
@@ -165,6 +192,26 @@ async function start() {
             phoneNumber =
                 await client.getHostNumber();
 
+            qrCode = null;
+
+            socket.emitHealth({
+
+                ready: true,
+
+                status,
+
+                phone: phoneNumber
+
+            });
+
+            socket.emitLog(
+
+                'success',
+
+                'WhatsApp Connected'
+
+            );
+
         } catch (_) {
 
             phoneNumber = null;
@@ -179,6 +226,24 @@ async function start() {
         client.onStateChange(async (state) => {
 
             status = state;
+
+            socket.emitStatus({
+
+                ready: isReady,
+
+                status,
+
+                phone: phoneNumber
+
+            });
+
+            socket.emitLog(
+
+                'info',
+
+                'State : ' + state
+
+            );
 
             logger.info(
                 'STATE : ' + state
@@ -214,6 +279,22 @@ async function start() {
 
                 case 'DISCONNECTED':
 
+                    socket.emitStatus({
+
+                        ready: false,
+
+                        status
+
+                    });
+
+                    socket.emitLog(
+
+                        'warning',
+
+                        'Disconnected'
+
+                    );
+
                     isReady = false;
 
                     scheduleReconnect();
@@ -230,7 +311,16 @@ async function start() {
 
                 logger.info(
 
+
                     `[MESSAGE] ${message.from} : ${message.body}`
+
+                );
+
+                socket.emitLog(
+
+                    'message',
+
+                    `${message.from} : ${message.body}`
 
                 );
 
@@ -335,7 +425,7 @@ async function restart() {
 
     status = 'RESTARTING';
 
-    return await this.start();
+    return await start();
 
     // if (isRestarting) {
     //     return;
