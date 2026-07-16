@@ -6,6 +6,9 @@ const whatsapp = require('./whatsappService');
 const logger = require('../helpers/logger');
 const config = require('../config/config');
 
+let totalSent = 0;
+let totalFailed = 0;
+
 const queue = new PQueue({
 
     concurrency: 1,
