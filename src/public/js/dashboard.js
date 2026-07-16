@@ -136,6 +136,7 @@ function updateDashboard(data) {
     const memEl = document.getElementById('memory-rss');
     const uptimeEl = document.getElementById('uptime');
 
+
     if (statusEl) statusEl.textContent = data.whatsapp?.status || '-';
     if (phoneEl) phoneEl.textContent = data.whatsapp?.phone || '-';
     if (queueEl) queueEl.textContent = data.queue?.waiting ?? 0;
@@ -169,6 +170,54 @@ function updateDashboard(data) {
     }
     if (footerQueue) footerQueue.textContent = data.queue?.waiting ?? 0;
     if (footerNode) footerNode.textContent = data.gateway?.node || '-';
+
+    const sidebarMemory =
+
+        document.getElementById(
+
+            "sidebar-memory"
+
+        );
+
+    if (sidebarMemory) {
+
+        sidebarMemory.innerHTML =
+
+            data.memory.rss;
+
+    }
+
+    const sidebarCPU =
+
+        document.getElementById(
+
+            "sidebar-cpu"
+
+        );
+
+    if (sidebarCPU) {
+
+        sidebarCPU.innerHTML =
+
+            data.cpu.cores + " Core";
+
+    }
+
+    const sidebarUptime =
+
+        document.getElementById(
+
+            "sidebar-uptime"
+
+        );
+
+    if (sidebarUptime) {
+
+        sidebarUptime.innerHTML =
+
+            data.uptime.formatted;
+
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -302,6 +351,82 @@ socket.on('qr', (data) => {
     >
 
     `;
+
+    socket.on(
+
+        'qr',
+
+        (data) => {
+
+            const panel =
+
+                document.getElementById(
+
+                    'qr-panel'
+
+                );
+
+            if (!panel) {
+
+                return;
+
+            }
+
+            if (
+
+                data.connected
+
+            ) {
+
+                panel.innerHTML =
+
+                    `
+
+        <div class="alert alert-success">
+
+            WhatsApp Connected
+
+        </div>
+
+        `;
+
+                return;
+
+            }
+
+            if (!data.qr) {
+
+                panel.innerHTML =
+
+                    `
+
+        <span class="text-muted">
+
+        QR belum tersedia
+
+        </span>
+
+        `;
+
+                return;
+
+            }
+
+            panel.innerHTML =
+
+                `
+
+    <img
+
+    src="${data.qr}"
+
+    class="img-fluid"
+
+    style="max-width:260px">
+
+    `;
+
+        });
 
 });
 

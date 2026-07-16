@@ -8,6 +8,7 @@ const logger = require('./helpers/logger');
 
 const whatsapp = require('./services/whatsappService');
 const scheduler = require('./services/schedulerService');
+const queue = require('./services/queueService');
 const watchdog = require('./services/watchdogService');
 
 const dashboardRoutes = require('./routes/dashboard');
@@ -153,11 +154,32 @@ async function startServer() {
 
         await whatsapp.start();
 
+
         scheduler.start();
 
         watchdog.start();
 
         socket.initialize(server);
+
+        const health = require('./services/healthService');
+
+        setInterval(() => {
+
+            socket.emitHealth(
+
+                health.getHealth()
+
+            );
+
+            socket.emitQueue({
+
+                waiting: queue.size(),
+
+                processing: queue.pending()
+
+            });
+
+        }, 1000);
 
         server.listen(config.port, config.host, () => {
 

@@ -123,6 +123,16 @@ async function start() {
 
                 qrCode = base64Qr;
 
+                const socket = require('../socket/socket');
+
+                socket.emitQR({
+
+                    connected: false,
+
+                    qr: base64Qr
+
+                });
+
                 socket.emitQR({
 
                     qr: true,
@@ -159,6 +169,18 @@ async function start() {
 
                 status = currentStatus;
 
+                const socket = require('../socket/socket');
+
+                socket.emitStatus({
+
+                    ready: isReady,
+
+                    status,
+
+                    phone: phoneNumber
+
+                });
+
                 socket.emitStatus({
 
                     ready: isReady,
@@ -191,6 +213,14 @@ async function start() {
 
             phoneNumber =
                 await client.getHostNumber();
+
+            socket.emitQR({
+
+                connected: true,
+
+                qr: null
+
+            });
 
             qrCode = null;
 
@@ -278,6 +308,14 @@ async function start() {
                 case 'UNPAIRED_IDLE':
 
                 case 'DISCONNECTED':
+
+                    socket.emitQR({
+
+                        connected: false,
+
+                        qr: null
+
+                    });
 
                     socket.emitStatus({
 
