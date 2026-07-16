@@ -12,14 +12,63 @@ function updateClock() {
 }
 
 function prependLog(message) {
-    const logEl = document.getElementById('live-log');
-    if (!logEl) return;
 
-    const row = document.createElement('div');
-    row.className = 'mb-2 p-2 rounded border bg-light';
-    row.textContent = `[${moment().format('HH:mm:ss')}] ${message}`;
+    const log =
 
-    logEl.prepend(row);
+        document.getElementById(
+
+            'live-log'
+
+        );
+
+    if (!log) {
+
+        return;
+
+    }
+
+    const row =
+
+        document.createElement(
+
+            'div'
+
+        );
+
+    row.className =
+
+        'log-item';
+
+    row.innerHTML =
+
+        `
+
+        <strong>
+
+        ${moment().format(
+
+            'HH:mm:ss'
+
+        )}
+
+        </strong>
+
+        ${message}
+
+        `;
+
+    log.prepend(row);
+
+    while (log.children.length > 100) {
+
+        log.removeChild(
+
+            log.lastChild
+
+        );
+
+    }
+
 }
 
 function initChart() {
@@ -42,6 +91,42 @@ function initChart() {
             maintainAspectRatio: false
         }
     });
+
+    function addChart(value) {
+
+        if (!chartInstance) {
+
+            return;
+
+        }
+
+        chartInstance.data.labels.push(
+
+            moment().format(
+
+                'HH:mm:ss'
+
+            )
+
+        );
+
+        chartInstance.data.datasets[0].data.push(
+
+            value
+
+        );
+
+        if (chartInstance.data.labels.length > 20) {
+
+            chartInstance.data.labels.shift();
+
+            chartInstance.data.datasets[0].data.shift();
+
+        }
+
+        chartInstance.update();
+
+    }
 }
 
 function updateDashboard(data) {
@@ -93,33 +178,177 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 socket.on('connect', () => {
-    prependLog('Socket connected');
+
+    prependLog(
+
+        'Dashboard Connected'
+
+    );
+
 });
 
 socket.on('disconnect', () => {
-    prependLog('Socket disconnected');
+
+    prependLog(
+
+        'Dashboard Disconnected'
+
+    );
+
 });
 
 socket.on('health', (data) => {
     updateDashboard(data);
 });
 
+socket.on('status', (data) => {
+
+    const statusEl = document.getElementById('wa-status');
+
+    const phoneEl = document.getElementById('wa-phone');
+
+    const navbarStatus = document.getElementById('navbar-status');
+
+    const sidebarStatus = document.getElementById('sidebar-status');
+
+    if (statusEl) {
+
+        statusEl.textContent = data.status || '-';
+
+    }
+
+    if (phoneEl) {
+
+        phoneEl.textContent = data.phone || '-';
+
+    }
+
+    if (navbarStatus) {
+
+        navbarStatus.textContent = data.status || '-';
+
+    }
+
+    if (sidebarStatus) {
+
+        sidebarStatus.textContent = data.status || '-';
+
+    }
+
+});
+
+socket.on('queue', (data) => {
+
+    addChart(
+
+        data.waiting
+
+    );
+
+    document.getElementById('queue-waiting').textContent =
+
+        data.waiting ?? 0;
+
+    document.getElementById('navbar-queue').textContent =
+
+        data.waiting ?? 0;
+
+    document.getElementById('sidebar-queue').textContent =
+
+        data.waiting ?? 0;
+
+});
+
+socket.on('log', (data) => {
+
+    prependLog(
+
+        `[${data.level.toUpperCase()}] ${data.message}`
+
+    );
+
+});
+
+socket.on('qr', (data) => {
+
+    let panel =
+
+        document.getElementById('qr-panel');
+
+    if (!panel) {
+
+        return;
+
+    }
+
+    if (!data.qr) {
+
+        panel.innerHTML = '';
+
+        return;
+
+    }
+
+    panel.innerHTML =
+
+        `
+
+    <img
+
+        class="img-fluid"
+
+        src="${data.image}"
+
+    >
+
+    `;
+
+});
+
+async function callGateway(action) {
+
+    try {
+
+        prependLog(action.toUpperCase() + '...');
+
+        const res = await axios.post('/api/gateway/' + action);
+
+        prependLog(res.data.message);
+
+    } catch (err) {
+
+        prependLog('ERROR : ' + (err.response?.data?.message || err.message));
+
+    }
+
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+
     const reconnectBtn = document.getElementById('btnReconnect');
     const reconnectBtn2 = document.getElementById('btnReconnect2');
     const restartBtn = document.getElementById('btnRestart');
     const restartBtn2 = document.getElementById('btnRestart2');
     const logoutBtn = document.getElementById('btnLogout');
 
-    [reconnectBtn, reconnectBtn2].forEach(btn => {
-        if (btn) btn.addEventListener('click', () => prependLog('Reconnect requested'));
-    });
+    if (reconnectBtn) {
+        reconnectBtn.onclick = () => callGateway('reconnect');
+    }
 
-    [restartBtn, restartBtn2].forEach(btn => {
-        if (btn) btn.addEventListener('click', () => prependLog('Restart requested'));
-    });
+    if (reconnectBtn2) {
+        reconnectBtn2.onclick = () => callGateway('reconnect');
+    }
+
+    if (restartBtn) {
+        restartBtn.onclick = () => callGateway('restart');
+    }
+
+    if (restartBtn2) {
+        restartBtn2.onclick = () => callGateway('restart');
+    }
 
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => prependLog('Logout requested'));
+        logoutBtn.onclick = () => callGateway('logout');
     }
+
 });

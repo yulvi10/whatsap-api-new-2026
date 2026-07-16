@@ -99,6 +99,9 @@ app.use('/', apiRoutes);
 
 // API Baru
 app.use('/api', apiRoutes);
+const gatewayRoutes = require('./routes/gateway');
+
+app.use('/api/gateway', gatewayRoutes);
 
 /*
 |--------------------------------------------------------------------------
