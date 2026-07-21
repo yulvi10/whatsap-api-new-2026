@@ -5,6 +5,7 @@ const PQueue = require('p-queue').default;
 const whatsapp = require('./whatsappService');
 const logger = require('../helpers/logger');
 const config = require('../config/config');
+const socket = require('../socket/socket');
 
 let totalSent = 0;
 let totalFailed = 0;
@@ -34,9 +35,19 @@ async function delay(ms) {
 async function sendText(number, message) {
 
     console.log('QUEUE ADD');
+
+    socket.emitQueue({
+        waiting: queue.size + 1,
+        processing: queue.pending,
+        sent: totalSent,
+        failed: totalFailed
+    });
+
     return queue.add(async () => {
 
         let retry = 0;
+
+
 
         while (retry < config.maxRetry) {
 
@@ -68,11 +79,7 @@ async function sendText(number, message) {
                         setTimeout(() => {
 
                             reject(
-
-                                new Error(
-                                    'Send Timeout'
-                                )
-
+                                new Error('Send Timeout')
                             );
 
                         }, config.sendTimeout);
@@ -81,11 +88,43 @@ async function sendText(number, message) {
 
                 ]);
 
-                logger.info(
+                // ===============================
+                // VALIDASI HASIL PENGIRIMAN
+                // ===============================
 
-                    `[QUEUE] SUCCESS -> ${number}`
+                if (result && result.ack >= 0 && !result.isSendFailure) {
 
-                );
+                    totalSent++;
+
+                    logger.info(
+
+                        `[QUEUE] SUCCESS -> ${number}`
+
+                    );
+
+                } else {
+
+                    totalFailed++;
+
+                    logger.warn(
+
+                        `[QUEUE] FAILED -> ${number}`
+
+                    );
+
+                }
+
+                socket.emitQueue({
+
+                    waiting: queue.size,
+
+                    processing: queue.pending,
+
+                    sent: totalSent,
+
+                    failed: totalFailed
+
+                });
 
                 return result;
 
@@ -101,7 +140,21 @@ async function sendText(number, message) {
 
                 if (retry >= config.maxRetry) {
 
+                    totalFailed++;
+
                     logger.error(err);
+
+                    socket.emitQueue({
+
+                        waiting: queue.size,
+
+                        processing: queue.pending,
+
+                        sent: totalSent,
+
+                        failed: totalFailed
+
+                    });
 
                     throw err;
 
@@ -114,6 +167,22 @@ async function sendText(number, message) {
         }
 
     });
+
+}
+
+function statistics() {
+
+    return {
+
+        sent: totalSent,
+
+        failed: totalFailed,
+
+        waiting: queue.size,
+
+        processing: queue.pending
+
+    };
 
 }
 
@@ -136,13 +205,9 @@ function clear() {
 }
 
 module.exports = {
-
     sendText,
-
     size,
-
     pending,
-
-    clear
-
+    clear,
+    statistics
 };

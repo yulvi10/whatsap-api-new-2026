@@ -133,13 +133,13 @@ async function start() {
 
                 });
 
-                socket.emitQR({
+                // socket.emitQR({
 
-                    qr: true,
+                //     qr: true,
 
-                    image: base64Qr
+                //     image: base64Qr
 
-                });
+                // });
 
                 socket.emitLog(
 
@@ -214,6 +214,10 @@ async function start() {
             phoneNumber =
                 await client.getHostNumber();
 
+            socket.emitQR({
+                connected: true,
+                image: null
+            });
             socket.emitQR({
 
                 connected: true,

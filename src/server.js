@@ -152,14 +152,11 @@ async function startServer() {
 
     try {
 
-        await whatsapp.start();
-
+        socket.initialize(server);
 
         scheduler.start();
 
         watchdog.start();
-
-        socket.initialize(server);
 
         const health = require('./services/healthService');
 
@@ -175,41 +172,31 @@ async function startServer() {
 
                 waiting: queue.size(),
 
-                processing: queue.pending()
+                processing: queue.pending(),
+
+                ...queue.statistics()
 
             });
 
-        }, 1000);
+        },1000);
 
-        server.listen(config.port, config.host, () => {
+        server.listen(config.port,config.host,()=>{
 
             logger.info('==========================================');
-            logger.info('AICA WhatsApp Gateway v4');
+            logger.info('AICA WhatsApp Gateway v5');
             logger.info('==========================================');
             logger.info(`URL : http://localhost:${config.port}`);
-            logger.info(`API : http://localhost:${config.port}/api`);
-            logger.info('Gateway Ready');
+            logger.info('Dashboard Ready');
+            logger.info('Gateway Status : STOPPED');
             logger.info('==========================================');
 
         });
 
-        // app.listen(config.port, config.host, () => {
+    }
 
-        //     logger.info('==========================================');
-        //     logger.info('AICA WhatsApp Gateway v4');
-        //     logger.info('==========================================');
-        //     logger.info(`URL : http://localhost:${config.port}`);
-        //     logger.info(`API : http://localhost:${config.port}/api`);
-        //     logger.info('Gateway Ready');
-        //     logger.info('==========================================');
-
-        // });
-
-    } catch (err) {
+    catch(err){
 
         logger.error(err);
-
-        process.exit(1);
 
     }
 

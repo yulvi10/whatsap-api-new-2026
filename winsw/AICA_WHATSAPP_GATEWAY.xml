@@ -23,5 +23,9 @@
   </log>
 
   <onfailure action="restart" delay="5 sec"/>
+  <resetfailure>1 hour</resetfailure>
+  <stoptimeout>15000</stoptimeout>
+  <env name="NODE_ENV" value="production"/>
+  <env name="TZ" value="Asia/Jakarta"/>
 
 </service>

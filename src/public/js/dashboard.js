@@ -92,41 +92,43 @@ function initChart() {
         }
     });
 
-    function addChart(value) {
 
-        if (!chartInstance) {
+}
 
-            return;
+function addChart(value) {
 
-        }
+    if (!chartInstance) {
 
-        chartInstance.data.labels.push(
-
-            moment().format(
-
-                'HH:mm:ss'
-
-            )
-
-        );
-
-        chartInstance.data.datasets[0].data.push(
-
-            value
-
-        );
-
-        if (chartInstance.data.labels.length > 20) {
-
-            chartInstance.data.labels.shift();
-
-            chartInstance.data.datasets[0].data.shift();
-
-        }
-
-        chartInstance.update();
+        return;
 
     }
+
+    chartInstance.data.labels.push(
+
+        moment().format(
+
+            'HH:mm:ss'
+
+        )
+
+    );
+
+    chartInstance.data.datasets[0].data.push(
+
+        value
+
+    );
+
+    if (chartInstance.data.labels.length > 20) {
+
+        chartInstance.data.labels.shift();
+
+        chartInstance.data.datasets[0].data.shift();
+
+    }
+
+    chartInstance.update();
+
 }
 
 function updateDashboard(data) {
@@ -171,53 +173,7 @@ function updateDashboard(data) {
     if (footerQueue) footerQueue.textContent = data.queue?.waiting ?? 0;
     if (footerNode) footerNode.textContent = data.gateway?.node || '-';
 
-    const sidebarMemory =
 
-        document.getElementById(
-
-            "sidebar-memory"
-
-        );
-
-    if (sidebarMemory) {
-
-        sidebarMemory.innerHTML =
-
-            data.memory.rss;
-
-    }
-
-    const sidebarCPU =
-
-        document.getElementById(
-
-            "sidebar-cpu"
-
-        );
-
-    if (sidebarCPU) {
-
-        sidebarCPU.innerHTML =
-
-            data.cpu.cores + " Core";
-
-    }
-
-    const sidebarUptime =
-
-        document.getElementById(
-
-            "sidebar-uptime"
-
-        );
-
-    if (sidebarUptime) {
-
-        sidebarUptime.innerHTML =
-
-            data.uptime.formatted;
-
-    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -288,23 +244,19 @@ socket.on('status', (data) => {
 
 socket.on('queue', (data) => {
 
-    addChart(
+    console.log('QUEUE EVENT :', data);
 
-        data.waiting
-
-    );
+    addChart(data.waiting);
+    const totalQueue = (data.waiting ?? 0) + (data.processing ?? 0);
 
     document.getElementById('queue-waiting').textContent =
-
-        data.waiting ?? 0;
+        totalQueue;
 
     document.getElementById('navbar-queue').textContent =
-
-        data.waiting ?? 0;
+        totalQueue;
 
     document.getElementById('sidebar-queue').textContent =
-
-        data.waiting ?? 0;
+        totalQueue;
 
 });
 
@@ -320,113 +272,38 @@ socket.on('log', (data) => {
 
 socket.on('qr', (data) => {
 
-    let panel =
+    const panel = document.getElementById('qr-panel');
 
-        document.getElementById('qr-panel');
+    if (!panel) return;
 
-    if (!panel) {
+    if (data.connected) {
 
-        return;
-
-    }
-
-    if (!data.qr) {
-
-        panel.innerHTML = '';
-
-        return;
-
-    }
-
-    panel.innerHTML =
-
-        `
-
-    <img
-
-        class="img-fluid"
-
-        src="${data.image}"
-
-    >
-
-    `;
-
-    socket.on(
-
-        'qr',
-
-        (data) => {
-
-            const panel =
-
-                document.getElementById(
-
-                    'qr-panel'
-
-                );
-
-            if (!panel) {
-
-                return;
-
-            }
-
-            if (
-
-                data.connected
-
-            ) {
-
-                panel.innerHTML =
-
-                    `
-
-        <div class="alert alert-success">
-
-            WhatsApp Connected
-
-        </div>
-
+        panel.innerHTML = `
+            <div class="alert alert-success">
+                WhatsApp Connected
+            </div>
         `;
 
-                return;
+        return;
+    }
 
-            }
+    if (!data.image) {
 
-            if (!data.qr) {
-
-                panel.innerHTML =
-
-                    `
-
-        <span class="text-muted">
-
-        QR belum tersedia
-
-        </span>
-
+        panel.innerHTML = `
+            <span class="text-muted">
+                QR belum tersedia
+            </span>
         `;
 
-                return;
+        return;
+    }
 
-            }
-
-            panel.innerHTML =
-
-                `
-
-    <img
-
-    src="${data.qr}"
-
-    class="img-fluid"
-
-    style="max-width:260px">
-
+    panel.innerHTML = `
+        <img
+            src="${data.image}"
+            class="img-fluid"
+            style="max-width:260px">
     `;
-
-        });
 
 });
 
