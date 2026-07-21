@@ -2,6 +2,102 @@
 
 const whatsapp = require('../services/whatsappService');
 
+/*
+|--------------------------------------------------------------------------
+| START GATEWAY
+|--------------------------------------------------------------------------
+*/
+
+exports.start = async (req, res) => {
+
+    try {
+
+        if (whatsapp.isReady()) {
+
+            return res.json({
+
+                success: true,
+
+                running: true,
+
+                message: 'Gateway already running'
+
+            });
+
+        }
+
+        await whatsapp.start();
+
+        return res.json({
+
+            success: true,
+
+            running: true,
+
+            message: 'Gateway started'
+
+        });
+
+    } catch (err) {
+
+        return res.status(500).json({
+
+            success: false,
+
+            running: false,
+
+            message: err.message
+
+        });
+
+    }
+
+};
+
+/*
+|--------------------------------------------------------------------------
+| STOP GATEWAY
+|--------------------------------------------------------------------------
+*/
+
+exports.stop = async (req, res) => {
+
+    try {
+
+        await whatsapp.shutdown();
+
+        return res.json({
+
+            success: true,
+
+            running: false,
+
+            message: 'Gateway stopped'
+
+        });
+
+    } catch (err) {
+
+        return res.status(500).json({
+
+            success: false,
+
+            running: true,
+
+            message: err.message
+
+        });
+
+    }
+
+};
+
+/*
+|--------------------------------------------------------------------------
+| RESTART GATEWAY
+|--------------------------------------------------------------------------
+*/
+
 exports.restart = async (req, res) => {
 
     try {
@@ -12,7 +108,9 @@ exports.restart = async (req, res) => {
 
             success: true,
 
-            message: 'Gateway restarting'
+            running: true,
+
+            message: 'Gateway restarted'
 
         });
 
@@ -30,6 +128,48 @@ exports.restart = async (req, res) => {
 
 };
 
+/*
+|--------------------------------------------------------------------------
+| RECONNECT GATEWAY
+|--------------------------------------------------------------------------
+*/
+
+exports.reconnect = async (req, res) => {
+
+    try {
+
+        await whatsapp.restart();
+
+        return res.json({
+
+            success: true,
+
+            running: true,
+
+            message: 'Gateway reconnected'
+
+        });
+
+    } catch (err) {
+
+        return res.status(500).json({
+
+            success: false,
+
+            message: err.message
+
+        });
+
+    }
+
+};
+
+/*
+|--------------------------------------------------------------------------
+| LOGOUT DEVICE
+|--------------------------------------------------------------------------
+*/
+
 exports.logout = async (req, res) => {
 
     try {
@@ -39,6 +179,8 @@ exports.logout = async (req, res) => {
         return res.json({
 
             success: true,
+
+            running: false,
 
             message: 'Logout success'
 
@@ -58,30 +200,26 @@ exports.logout = async (req, res) => {
 
 };
 
-exports.reconnect = async (req, res) => {
+/*
+|--------------------------------------------------------------------------
+| GATEWAY STATUS
+|--------------------------------------------------------------------------
+*/
 
-    try {
+exports.status = async (req, res) => {
 
-        await whatsapp.restart();
+    return res.json({
 
-        return res.json({
+        success: true,
 
-            success: true,
+        running: whatsapp.isReady(),
 
-            message: 'Reconnect success'
+        status: whatsapp.getStatus(),
 
-        });
+        phone: whatsapp.getPhoneNumber(),
 
-    } catch (err) {
+        qr: whatsapp.getQRCode()
 
-        return res.status(500).json({
-
-            success: false,
-
-            message: err.message
-
-        });
-
-    }
+    });
 
 };

@@ -108,8 +108,8 @@
     <div class="panel-card h-100">
       <div class="panel-header">
         <h5 class="mb-0">Live Log</h5>
-        <div id="qr-panel" class="mt-3"></div>
-        <small class="text-muted">Realtime gateway events</small>
+
+        <small class="text-muted"> Realtime gateway events </small>
       </div>
       <div class="panel-body">
         <div id="live-log" class="live-log">
@@ -123,24 +123,54 @@
     <div class="panel-card h-100">
       <div class="panel-header">
         <h5 class="mb-0">Quick Actions</h5>
-        <div class="panel-card mt-4">
+
+        <small class="text-muted"> Gateway Control </small>
+      </div>
+
+      <div class="panel-body">
+        <!-- QR CARD -->
+
+        <div class="panel-card mb-4">
           <div class="panel-header">
-            <h5>QR Code</h5>
+            <h5 class="mb-0">QR Code</h5>
           </div>
 
           <div class="panel-body text-center">
-            <div id="qr-panel">
-              <span class="text-muted"> QR tidak tersedia </span>
+            <div
+              id="qr-panel"
+              class="d-flex justify-content-center align-items-center"
+              style="min-height: 260px"
+            >
+              <span class="text-muted"> QR belum tersedia </span>
             </div>
           </div>
         </div>
-        <small class="text-muted">Gateway control</small>
-      </div>
-      <div class="panel-body d-grid gap-2">
-        <button class="btn btn-danger" id="btnRestart2">Restart Gateway</button>
-        <button class="btn btn-warning" id="btnReconnect2">Reconnect</button>
-        <button class="btn btn-success" id="btnGenerateQr">Generate QR</button>
-        <button class="btn btn-primary" id="btnBackup">Backup Session</button>
+
+        <!-- BUTTON -->
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" id="btnStartGateway">
+            <i class="bi bi-play-fill"></i>
+
+            Start Gateway
+          </button>
+
+          <button class="btn btn-danger" id="btnStopGateway">
+            <i class="bi bi-stop-fill"></i>
+
+            Stop Gateway
+          </button>
+
+          <button class="btn btn-warning" id="btnRestartGateway">
+            Restart Gateway
+          </button>
+
+          <button class="btn btn-secondary" id="btnLogoutGateway">
+            Logout Device
+          </button>
+
+          <button class="btn btn-primary" id="btnBackup">Backup Session</button>
+        </div>
       </div>
     </div>
   </div>

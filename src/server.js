@@ -95,12 +95,13 @@ app.use((req, res, next) => {
 // Dashboard
 app.use('/', dashboardRoutes);
 
-// API Lama (Backward Compatible)
-app.use('/', apiRoutes);
 
 // API Baru
 app.use('/api', apiRoutes);
 const gatewayRoutes = require('./routes/gateway');
+console.log('Register Gateway Route');
+
+console.log('Mount : /api/gateway');
 
 app.use('/api/gateway', gatewayRoutes);
 

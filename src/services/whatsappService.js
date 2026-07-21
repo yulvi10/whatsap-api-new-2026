@@ -366,6 +366,16 @@ async function start() {
 
                 );
 
+                client.onAck((ack) => {
+
+                    ackService.handle(
+
+                        ack
+
+                    );
+
+                });
+
             } catch (err) {
 
                 logger.error(err);

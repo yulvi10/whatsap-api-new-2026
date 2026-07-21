@@ -4,12 +4,26 @@ const express = require('express');
 
 const router = express.Router();
 
-const controller = require('../controllers/gatewayController');
+const gateway = require('../controllers/gatewayController');
 
-router.post('/restart', controller.restart);
+console.log('Gateway routes loaded');
 
-router.post('/logout', controller.logout);
+/*
+|--------------------------------------------------------------------------
+| Gateway Lifecycle
+|--------------------------------------------------------------------------
+*/
 
-router.post('/reconnect', controller.reconnect);
+router.get('/status', gateway.status);
+
+router.post('/start', gateway.start);
+
+router.post('/stop', gateway.stop);
+
+router.post('/restart', gateway.restart);
+
+router.post('/reconnect', gateway.reconnect);
+
+router.post('/logout', gateway.logout);
 
 module.exports = router;
