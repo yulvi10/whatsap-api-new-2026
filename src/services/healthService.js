@@ -3,8 +3,9 @@
 const os = require('os');
 
 const config = require('../config/config');
-const whatsapp = require('./whatsappService');
+// const whatsapp = require('./whatsappService');
 const queue = require('./queueService');
+const gatewayState = require('./gatewayState');
 
 class HealthService {
 
@@ -94,15 +95,23 @@ class HealthService {
 
     whatsapp() {
 
+        const gateway = gatewayState.get();
+
         return {
 
-            ready: whatsapp.isReady(),
+            ready: gateway.ready,
 
-            status: whatsapp.getStatus(),
+            status: gateway.status,
 
-            phone: whatsapp.getPhoneNumber(),
+            phone: gateway.phone,
 
-            qr: whatsapp.getQRCode() ? true : false
+            qr: gateway.qr ? true : false,
+
+            reconnectAttempt: gateway.reconnectAttempt,
+
+            lastReconnect: gateway.lastReconnect,
+
+            lastError: gateway.lastError
 
         };
 

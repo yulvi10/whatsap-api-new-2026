@@ -6,6 +6,11 @@ const path = require('path');
 const logger = require('../helpers/logger');
 const config = require('../config/config');
 const socket = require('../socket/socket');
+const gatewayState = require('./gatewayState');
+
+const ackService = require('./ackService');
+const healthService = require('./healthService');
+
 
 let client = null;
 
@@ -18,6 +23,10 @@ let phoneNumber = null;
 let status = 'STOPPED';
 
 let reconnectTimer = null;
+
+let reconnectAttempt = 0;
+
+let listenersRegistered = false;
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -35,25 +44,71 @@ function clearReconnectTimer() {
 
 }
 
+function getReconnectDelay() {
+
+    const delays = [
+
+        5000,
+
+        10000,
+
+        20000,
+
+        40000,
+
+        60000
+
+    ];
+
+    return delays[
+
+        Math.min(
+
+            reconnectAttempt,
+
+            delays.length - 1
+
+        )
+
+    ];
+
+}
+
 function scheduleReconnect() {
 
-    clearReconnectTimer();
+    if (reconnectTimer) {
+
+        return;
+
+    }
+
+    reconnectAttempt++;
+
+    const delay = getReconnectDelay();
+
+    logger.warn(
+
+        `Reconnect in ${delay / 1000}s (Attempt ${reconnectAttempt})`
+
+    );
 
     reconnectTimer = setTimeout(async () => {
 
-        try {
+        reconnectTimer = null;
 
-            logger.warn('Reconnect WhatsApp...');
+        try {
 
             await restart();
 
-        } catch (err) {
+        }
+
+        catch (err) {
 
             logger.error(err);
 
         }
 
-    }, 5000);
+    }, delay);
 
 }
 
@@ -70,6 +125,18 @@ async function start() {
     logger.info('====================================');
     logger.info('STARTING WHATSAPP');
     logger.info('====================================');
+
+    gatewayState.setStatus({
+
+        status: 'STARTING',
+
+        ready: false,
+
+        startedAt: new Date()
+
+    });
+
+
 
     try {
 
@@ -121,9 +188,15 @@ async function start() {
 
             catchQR(base64Qr, asciiQR) {
 
+                logger.info('QR GENERATED');
+
                 qrCode = base64Qr;
 
-                const socket = require('../socket/socket');
+                gatewayState.setStatus('WAITING_QR');
+
+                gatewayState.setReady(false);
+
+                gatewayState.setQR(base64Qr);
 
                 socket.emitQR({
 
@@ -133,13 +206,21 @@ async function start() {
 
                 });
 
-                // socket.emitQR({
+                socket.emitStatus({
 
-                //     qr: true,
+                    ready: false,
 
-                //     image: base64Qr
+                    status: 'WAITING_QR',
 
-                // });
+                    phone: null
+
+                });
+
+                socket.emitHealth(
+
+                    healthService.getHealth()
+
+                );
 
                 socket.emitLog(
 
@@ -153,8 +234,6 @@ async function start() {
 
                 console.log(asciiQR);
 
-                logger.info('QR GENERATED');
-
             },
 
             catchLinkCode(code) {
@@ -167,19 +246,22 @@ async function start() {
 
             statusFind(currentStatus) {
 
+
+
+                // const socket = require('../socket/socket');
+
+                // socket.emitStatus({
+
+                //     ready: isReady,
+
+                //     status,
+
+                //     phone: phoneNumber
+
+                // });
+
                 status = currentStatus;
-
-                const socket = require('../socket/socket');
-
-                socket.emitStatus({
-
-                    ready: isReady,
-
-                    status,
-
-                    phone: phoneNumber
-
-                });
+                gatewayState.setStatus(currentStatus);
 
                 socket.emitStatus({
 
@@ -209,15 +291,12 @@ async function start() {
 
         isReady = true;
 
+        gatewayState.setReady(true);
+
         try {
 
-            phoneNumber =
-                await client.getHostNumber();
+            gatewayState.setPhone(phoneNumber);
 
-            socket.emitQR({
-                connected: true,
-                image: null
-            });
             socket.emitQR({
 
                 connected: true,
@@ -228,15 +307,11 @@ async function start() {
 
             qrCode = null;
 
-            socket.emitHealth({
+            socket.emitHealth(
 
-                ready: true,
+                healthService.getHealth()
 
-                status,
-
-                phone: phoneNumber
-
-            });
+            );
 
             socket.emitLog(
 
@@ -257,132 +332,14 @@ async function start() {
             (phoneNumber || '-')
         );
 
-        client.onStateChange(async (state) => {
-
-            status = state;
-
-            socket.emitStatus({
-
-                ready: isReady,
-
-                status,
-
-                phone: phoneNumber
-
-            });
-
-            socket.emitLog(
-
-                'info',
-
-                'State : ' + state
-
-            );
-
-            logger.info(
-                'STATE : ' + state
-            );
-
-            switch (state) {
-
-                case 'CONNECTED':
-
-                    isReady = true;
-
-                    clearReconnectTimer();
-
-                    break;
-
-                case 'CONFLICT':
-
-                    logger.warn(
-                        'CONFLICT DETECTED'
-                    );
-
-                    try {
-
-                        await client.useHere();
-
-                    } catch (_) { }
-
-                    break;
-
-                case 'UNPAIRED':
-
-                case 'UNPAIRED_IDLE':
-
-                case 'DISCONNECTED':
-
-                    socket.emitQR({
-
-                        connected: false,
-
-                        qr: null
-
-                    });
-
-                    socket.emitStatus({
-
-                        ready: false,
-
-                        status
-
-                    });
-
-                    socket.emitLog(
-
-                        'warning',
-
-                        'Disconnected'
-
-                    );
-
-                    isReady = false;
-
-                    scheduleReconnect();
-
-                    break;
-
-            }
-
-        });
-
-        client.onMessage(async (message) => {
-
-            try {
-
-                logger.info(
 
 
-                    `[MESSAGE] ${message.from} : ${message.body}`
+        if (!listenersRegistered) {
 
-                );
+            listenersRegistered = true;
 
-                socket.emitLog(
 
-                    'message',
-
-                    `${message.from} : ${message.body}`
-
-                );
-
-                client.onAck((ack) => {
-
-                    ackService.handle(
-
-                        ack
-
-                    );
-
-                });
-
-            } catch (err) {
-
-                logger.error(err);
-
-            }
-
-        });
+        }
 
 
         return client;
@@ -465,6 +422,10 @@ async function restart() {
 
                 await client.close();
 
+                await delay(2000);
+
+                await start();
+
             } catch (_) { }
 
         }
@@ -543,6 +504,10 @@ async function logout() {
 
         await client.close();
 
+        await delay(2000);
+
+        await start();
+
     } catch (_) { }
 
     client = null;
@@ -552,6 +517,31 @@ async function logout() {
     phoneNumber = null;
 
     status = 'LOGOUT';
+
+    gatewayState.setStatus({
+
+        status: 'LOGOUT',
+
+        ready: false,
+
+        phone: null,
+
+        qr: null
+
+    });
+    socket.emitHealth(
+
+        healthService.getHealth()
+
+    );
+
+    socket.emitStatus({
+
+        ready: false,
+
+        status: "LOGOUT"
+
+    });
 
 }
 
@@ -563,11 +553,23 @@ async function shutdown() {
 
     status = 'STOPPED';
 
+    gatewayState.reset();
+
+    socket.emitHealth(
+
+        healthService.getHealth()
+
+    );
+
     if (client) {
 
         try {
 
             await client.close();
+
+            await delay(2000);
+
+            await start();
 
         } catch (_) { }
 
