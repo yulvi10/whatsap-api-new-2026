@@ -124,9 +124,21 @@ async function handle(message) {
 
             status,
 
-            updated_at: new Date()
+            updated_at: new Date(),
+
+            retry: message.retry || 0,
+
+            error: message.error || null
 
         };
+
+        if (status === 'SENT') {
+
+            updateData.sent_at =
+
+                new Date();
+
+        }
 
         if (status === 'DELIVERED') {
 
@@ -135,6 +147,7 @@ async function handle(message) {
                 new Date();
 
         }
+
 
         if (status === 'READ') {
 
@@ -182,9 +195,23 @@ async function handle(message) {
 
         );
 
+        socket.emitHealth(
+
+            require('./healthService').getHealth()
+
+        );
+
+        socket.emitQueue({
+
+            waiting: require('./queueService').size(),
+
+            processing: require('./queueService').pending()
+
+        });
+
         logger.info(
 
-            `[ACK] ${jobId} -> ${status}`
+            `[ACK] Job:${jobId} Ack:${message.ack} Status:${status}`
 
         );
 
