@@ -1,7 +1,7 @@
 'use strict';
 
 const wppconnect = require('@wppconnect-team/wppconnect');
-const path = require('path');
+// const path = require('path');
 
 const logger = require('../helpers/logger');
 const config = require('../config/config');
@@ -96,7 +96,16 @@ function scheduleReconnect() {
 
         reconnectTimer = null;
 
+
         try {
+
+            gatewayState.update({
+
+                lastReconnect: new Date(),
+
+                reconnectAttempt
+
+            });
 
             await restart();
 
@@ -126,7 +135,7 @@ async function start() {
     logger.info('STARTING WHATSAPP');
     logger.info('====================================');
 
-    gatewayState.setStatus({
+    gatewayState.update({
 
         status: 'STARTING',
 
@@ -246,35 +255,36 @@ async function start() {
 
             statusFind(currentStatus) {
 
-
-
-                // const socket = require('../socket/socket');
-
-                // socket.emitStatus({
-
-                //     ready: isReady,
-
-                //     status,
-
-                //     phone: phoneNumber
-
-                // });
+                logger.info(
+                    'STATUS : ' + currentStatus
+                );
 
                 status = currentStatus;
+
                 gatewayState.setStatus(currentStatus);
 
                 socket.emitStatus({
 
-                    ready: isReady,
+                    ready: gatewayState.get().ready,
 
-                    status: currentStatus,
+                    status: gatewayState.get().status,
 
-                    phone: phoneNumber
+                    phone: gatewayState.get().phone
 
                 });
 
-                logger.info(
-                    'STATUS : ' + currentStatus
+                socket.emitHealth(
+
+                    healthService.getHealth()
+
+                );
+
+                socket.emitLog(
+
+                    'info',
+
+                    'Status : ' + currentStatus
+
                 );
 
             },
@@ -289,13 +299,27 @@ async function start() {
 
         });
 
-        isReady = true;
 
-        gatewayState.setReady(true);
 
         try {
 
-            gatewayState.setPhone(phoneNumber);
+            phoneNumber = await client.getHostNumber();
+
+            isReady = true;
+
+            gatewayState.update({
+
+                ready: true,
+
+                status: 'CONNECTED',
+
+                phone: phoneNumber,
+
+                qr: null,
+
+                connectedAt: new Date()
+
+            });
 
             socket.emitQR({
 
@@ -321,7 +345,13 @@ async function start() {
 
             );
 
-        } catch (_) {
+        } catch (err) {
+
+            logger.warn(
+
+                'Unable to get host number'
+
+            );
 
             phoneNumber = null;
 
@@ -338,6 +368,23 @@ async function start() {
 
             listenersRegistered = true;
 
+            client.onAck(async (ack) => {
+
+                try {
+
+                    if (ack) {
+
+                        await ackService.handle(ack);
+
+                    }
+
+                } catch (err) {
+
+                    logger.error(err);
+
+                }
+
+            });
 
         }
 
@@ -353,6 +400,16 @@ async function start() {
         phoneNumber = null;
 
         status = 'ERROR';
+
+        gatewayState.update({
+
+            status: 'ERROR',
+
+            ready: false,
+
+            lastError: err.message
+
+        });
 
         logger.error(err);
 
@@ -378,7 +435,7 @@ async function sendText(number, text) {
             'Client belum dibuat'
         );
 
-    if (!isReady)
+    if (!gatewayState.get().ready)
         throw new Error(
             'WhatsApp belum ready'
         );
@@ -412,6 +469,18 @@ async function sendText(number, text) {
 
 async function restart() {
 
+    if (isRestarting) {
+
+        logger.warn('Restart already in progress');
+
+        return;
+
+    }
+
+    isRestarting = true;
+
+    clearReconnectTimer();
+
     logger.warn('Restarting WhatsApp...');
 
     try {
@@ -422,63 +491,70 @@ async function restart() {
 
                 await client.close();
 
-                await delay(2000);
+            }
 
-                await start();
+            catch (err) {
 
-            } catch (_) { }
+                logger.error(err);
+
+            }
 
         }
 
-    } catch (_) { }
+        client = null;
 
-    client = null;
 
-    isReady = false;
+        isReady = false;
 
-    status = 'RESTARTING';
+        phoneNumber = null;
 
-    return await start();
+        qrCode = null;
 
-    // if (isRestarting) {
-    //     return;
-    // }
+        status = 'RESTARTING';
 
-    // isRestarting = true;
+        gatewayState.update({
 
-    // clearReconnectTimer();
+            status: 'RESTARTING',
 
-    // logger.warn('RESTARTING WHATSAPP...');
+            ready: false,
 
-    // try {
+            phone: null,
 
-    //     if (client) {
+            qr: null,
 
-    //         try {
+            lastReconnect: new Date(),
 
-    //             await client.close();
+            reconnectAttempt
 
-    //         } catch (_) { }
+        });
 
-    //     }
+        socket.emitHealth(
 
-    // } finally {
+            healthService.getHealth()
 
-    //     client = null;
+        );
 
-    //     isReady = false;
+        socket.emitStatus({
 
-    //     phoneNumber = null;
+            ready: false,
 
-    //     status = 'RESTARTING';
+            status: 'RESTARTING',
 
-    //     await delay(3000);
+            phone: null
 
-    //     isRestarting = false;
+        });
 
-    // }
+        await delay(2000);
 
-    // return start();
+        return await start();
+
+    }
+
+    finally {
+
+        isRestarting = false;
+
+    }
 
 }
 
@@ -504,10 +580,6 @@ async function logout() {
 
         await client.close();
 
-        await delay(2000);
-
-        await start();
-
     } catch (_) { }
 
     client = null;
@@ -516,9 +588,11 @@ async function logout() {
 
     phoneNumber = null;
 
+    qrCode = null;
+
     status = 'LOGOUT';
 
-    gatewayState.setStatus({
+    gatewayState.update({
 
         status: 'LOGOUT',
 
@@ -547,6 +621,8 @@ async function logout() {
 
 async function shutdown() {
 
+    clearReconnectTimer();
+
     logger.warn('Shutdown WhatsApp...');
 
     isReady = false;
@@ -567,15 +643,21 @@ async function shutdown() {
 
             await client.close();
 
-            await delay(2000);
+        }
 
-            await start();
+        catch (err) {
 
-        } catch (_) { }
+            logger.error(err);
+
+        }
 
     }
 
     client = null;
+
+    qrCode = null;
+
+    phoneNumber = null;
 
 
     // clearReconnectTimer();
