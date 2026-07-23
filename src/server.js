@@ -23,6 +23,8 @@ const expressLayouts =
 
 const app = express();
 const server = http.createServer(app);
+
+const historyRoutes = require('./routes/history');
 /*
 |--------------------------------------------------------------------------
 | View Engine
@@ -104,6 +106,8 @@ console.log('Register Gateway Route');
 console.log('Mount : /api/gateway');
 
 app.use('/api/gateway', gatewayRoutes);
+
+app.use('/api/history', historyRoutes);
 
 /*
 |--------------------------------------------------------------------------

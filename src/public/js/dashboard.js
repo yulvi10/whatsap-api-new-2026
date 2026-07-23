@@ -376,7 +376,11 @@ window.addEventListener('DOMContentLoaded', () => {
         logoutBtn.onclick = () => callGateway('logout')
     }
 
-    loadGatewayStatus()
+    loadGatewayStatus();
+
+    loadHistory();
+
+    setInterval(loadHistory, 5000);
 
     const btnStart = document.getElementById("btnStartGateway");
 
@@ -411,4 +415,162 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 })
 
+
+async function loadHistory() {
+
+    try {
+
+        const response = await fetch('/api/history/latest');
+
+        const result = await response.json();
+
+        const tbody = document.getElementById('historyBody');
+
+        if (!tbody) {
+
+            return;
+
+        }
+
+        tbody.innerHTML = '';
+
+        if (!result.success || result.total === 0) {
+
+            tbody.innerHTML = `
+
+                <tr>
+
+                    <td colspan="7" class="text-center text-muted py-4">
+
+                        No Message
+
+                    </td>
+
+                </tr>
+
+            `;
+
+            return;
+
+        }
+
+        result.data.forEach(item => {
+
+            tbody.innerHTML += createHistoryRow(item);
+
+        });
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+    }
+
+}
+
+function createHistoryRow(item) {
+
+    return `
+
+        <tr>
+
+            <td>
+
+                ${item.created_at ?? '-'}
+
+            </td>
+
+            <td>
+
+                ${item.phone}
+
+            </td>
+
+            <td>
+
+                ${item.message}
+
+            </td>
+
+            <td>
+
+                ${statusBadge(item.status)}
+
+            </td>
+
+            <td>
+
+                ${item.ack ?? '-'}
+
+            </td>
+
+            <td>
+
+                ${item.retry ?? 0}
+
+            </td>
+
+            <td>
+
+                <button
+
+                    class="btn btn-sm btn-outline-primary"
+
+                    data-id="${item.job_id}"
+
+                >
+
+                    Detail
+
+                </button>
+
+            </td>
+
+        </tr>
+
+    `;
+
+}
+
+function statusBadge(status) {
+
+    switch (status) {
+
+        case 'READ':
+
+            return '<span class="badge bg-success">READ</span>';
+
+        case 'DELIVERED':
+
+            return '<span class="badge bg-warning text-dark">DELIVERED</span>';
+
+        case 'SERVER_RECEIVED':
+
+            return '<span class="badge bg-info">SERVER</span>';
+
+        case 'FAILED':
+
+            return '<span class="badge bg-danger">FAILED</span>';
+
+        case 'SENDING':
+
+            return '<span class="badge bg-primary">SENDING</span>';
+
+        case 'WAITING':
+
+            return '<span class="badge bg-secondary">WAITING</span>';
+
+        default:
+
+            return `<span class="badge bg-light text-dark">
+
+                ${status}
+
+            </span>`;
+
+    }
+
+}
 

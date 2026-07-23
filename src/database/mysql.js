@@ -13,7 +13,7 @@ const pool = mysql.createPool({
 
     password: process.env.DB_PASSWORD || 'aicafox2022',
 
-    database: process.env.DB_NAME || 'e_it_system',
+    database: process.env.DB_NAME || 'e_it_systems',
 
     waitForConnections: true,
 

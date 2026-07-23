@@ -252,16 +252,22 @@ async function findByMessageId(messageId) {
 
 async function history(limit = 100) {
 
+    limit = parseInt(limit, 10);
+
+    if (isNaN(limit) || limit <= 0) {
+
+        limit = 100;
+
+    }
+
     return await db.query(
 
         `
         SELECT *
         FROM whatsapp_message_log
         ORDER BY serial_id DESC
-        LIMIT ?
-        `,
-
-        [limit]
+        LIMIT ${limit}
+        `
 
     );
 
@@ -289,6 +295,54 @@ async function deleteOld(days = 30) {
 
 }
 
+/*
+|--------------------------------------------------------------------------
+| Latest Message
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Latest Message
+|--------------------------------------------------------------------------
+*/
+
+async function latest(limit = 50) {
+
+    limit = parseInt(limit, 10);
+
+    if (isNaN(limit) || limit <= 0) {
+
+        limit = 50;
+
+    }
+
+    return await db.query(
+
+        `
+        SELECT
+            serial_id,
+            job_id,
+            phone,
+            message,
+            status,
+            ack,
+            retry,
+            error,
+            created_at,
+            sent_at,
+            delivered_at,
+            read_at,
+            failed_at
+        FROM whatsapp_message_log
+        ORDER BY serial_id DESC
+        LIMIT ${limit}
+        `
+
+    );
+
+}
+
 module.exports = {
 
     create,
@@ -306,6 +360,8 @@ module.exports = {
     findByMessageId,
 
     history,
+
+    latest,
 
     deleteOld
 
