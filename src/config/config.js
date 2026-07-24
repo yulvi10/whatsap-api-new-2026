@@ -102,6 +102,10 @@ module.exports = {
 
     sessionPath: path.join(rootPath, 'session'),
 
+    backupPath: path.join(rootPath, 'backup'),
+
+    tempPath: path.join(rootPath, 'temp'),
+
     logPath: path.join(rootPath, 'logs'),
 
     qrPath: path.join(rootPath, 'src', 'public', 'qr.png')

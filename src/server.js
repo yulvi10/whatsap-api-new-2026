@@ -25,6 +25,10 @@ const app = express();
 const server = http.createServer(app);
 
 const historyRoutes = require('./routes/history');
+
+const gatewayRoutes = require('./routes/gateway');
+
+const sessionRoutes = require('./routes/session');
 /*
 |--------------------------------------------------------------------------
 | View Engine
@@ -97,17 +101,18 @@ app.use((req, res, next) => {
 // Dashboard
 app.use('/', dashboardRoutes);
 
-
 // API Baru
 app.use('/api', apiRoutes);
-const gatewayRoutes = require('./routes/gateway');
-console.log('Register Gateway Route');
-
-console.log('Mount : /api/gateway');
 
 app.use('/api/gateway', gatewayRoutes);
 
 app.use('/api/history', historyRoutes);
+
+app.use('/api/session', sessionRoutes);
+
+console.log('Register Gateway Route');
+
+console.log('Mount : /api/gateway');
 
 /*
 |--------------------------------------------------------------------------
@@ -183,9 +188,9 @@ async function startServer() {
 
             });
 
-        },1000);
+        }, 1000);
 
-        server.listen(config.port,config.host,()=>{
+        server.listen(config.port, config.host, () => {
 
             logger.info('==========================================');
             logger.info('AICA WhatsApp Gateway v5');
@@ -199,7 +204,7 @@ async function startServer() {
 
     }
 
-    catch(err){
+    catch (err) {
 
         logger.error(err);
 

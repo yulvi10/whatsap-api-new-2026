@@ -4,6 +4,8 @@ const socket = window.GATEWAY ? window.GATEWAY.SOCKET : io()
 
 let chartInstance = null
 
+let historyCache = []
+
 function updateClock() {
     const el = document.getElementById('current-time')
     if (el && window.moment) {
@@ -424,6 +426,8 @@ async function loadHistory() {
 
         const result = await response.json();
 
+        historyCache = result.data || [];
+
         const tbody = document.getElementById('historyBody');
 
         if (!tbody) {
@@ -456,7 +460,15 @@ async function loadHistory() {
 
         result.data.forEach(item => {
 
-            tbody.innerHTML += createHistoryRow(item);
+            let html = '';
+
+            result.data.forEach(item => {
+
+                html += createHistoryRow(item);
+
+            });
+
+            tbody.innerHTML = html;
 
         });
 
@@ -470,6 +482,8 @@ async function loadHistory() {
 
 }
 
+
+
 function createHistoryRow(item) {
 
     return `
@@ -478,7 +492,7 @@ function createHistoryRow(item) {
 
             <td>
 
-                ${item.created_at ?? '-'}
+                ${formatDateTime(item.created_at)}
 
             </td>
 
@@ -490,7 +504,7 @@ function createHistoryRow(item) {
 
             <td>
 
-                ${item.message}
+                ${shortMessage(item.message)}
 
             </td>
 
@@ -502,27 +516,21 @@ function createHistoryRow(item) {
 
             <td>
 
-                ${item.ack ?? '-'}
+                ${ackBadge(item.ack)}
 
             </td>
 
             <td>
 
-                ${item.retry ?? 0}
+                ${retryBadge(item.retry)}
 
             </td>
 
             <td>
 
-                <button
+                <button class="btn btn-sm btn-primary btn-history-detail" data-id="${item.job_id}">
 
-                    class="btn btn-sm btn-outline-primary"
-
-                    data-id="${item.job_id}"
-
-                >
-
-                    Detail
+                <i class="bi bi-eye"></i> Detail
 
                 </button>
 
@@ -574,3 +582,120 @@ function statusBadge(status) {
 
 }
 
+function formatDateTime(dateString) {
+
+    if (!dateString) {
+
+        return '-';
+
+    }
+
+    const date = new Date(dateString);
+
+    const tanggal = date.toLocaleDateString('id-ID', {
+
+        day: '2-digit',
+
+        month: 'short'
+
+    });
+
+    const jam = date.toLocaleTimeString('id-ID', {
+
+        hour: '2-digit',
+
+        minute: '2-digit'
+
+    });
+
+    return `
+
+        <div>
+
+            ${tanggal}
+
+            <br>
+
+            <small class="text-muted">
+
+                ${jam}
+
+            </small>
+
+        </div>
+
+    `;
+
+}
+
+
+function shortMessage(message) {
+
+    if (!message) return '-';
+
+    if (message.length <= 45) {
+
+        return message;
+
+    }
+
+    return message.substring(0, 45) + '...';
+
+}
+
+function ackBadge(ack) {
+
+    switch (Number(ack)) {
+
+        case 3:
+
+            return '<span class="badge bg-success">READ</span>';
+
+        case 2:
+
+            return '<span class="badge bg-warning text-dark">DELIVERED</span>';
+
+        case 1:
+
+            return '<span class="badge bg-primary">SENT</span>';
+
+        case 0:
+
+            return '<span class="badge bg-secondary">PENDING</span>';
+
+        default:
+
+            return '<span class="badge bg-danger">-</span>';
+
+    }
+
+}
+
+
+function retryBadge(retry) {
+
+    retry = Number(retry || 0);
+
+    if (retry === 0) {
+
+        return '<span class="badge bg-success">0</span>';
+
+    }
+
+    if (retry <= 2) {
+
+        return `<span class="badge bg-warning text-dark">
+
+            ${retry}
+
+        </span>`;
+
+    }
+
+    return `<span class="badge bg-danger">
+
+        ${retry}
+
+    </span>`;
+
+}
